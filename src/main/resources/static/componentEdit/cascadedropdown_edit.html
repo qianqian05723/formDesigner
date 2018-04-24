@@ -1,0 +1,45 @@
+<div class="controls cascadedropdown_component_edit">
+	<div class="component-heading mb10">两级下拉框</div>
+	<label>标题</label>
+	<div>
+    	<input  type="text" class="mb0 form-control component_title"  placeholder="未命名" >
+    	<p class="error_tip mg0">标题不能为空</p>
+    </div>
+    <label class='mt10'>选项</label>
+    <div class="optionlist">
+    	<div class="cascade_item">
+    		<div class='optionlist_parent'>
+    			<span class='parent_choice_value'>一级选项</span>
+    			<input  class='parent_option_value' type="text" placeholder="一级选项" value=''/>
+    			<i class="fa fa-plus-circle parent_add_option"></i>
+    			<i class="fa fa-minus-circle parent_minus_option"></i>
+    			<p class="error_tip">选项不能为空</p>
+    		</div>
+    		<ul class='optionlist_child'>
+    			<li>
+    				<input class='child_option_value' type="text" placeholder="二级选项" value='子选项'  data-cache='子选项'/>
+    				<i class="fa fa-plus-square-o child_add_option"></i>
+	    			<i class="fa fa-minus-square-o child_minus_option"></i>
+	    			<p class="error_tip">选项不能为空</p>
+    			</li>
+    		</ul>
+    	</div>
+    </div>
+    <label class='mt10'>自定义选择默认文案</label>
+    <label>一级选项</label>
+    <div class="mb10">
+		<input  type="text" class="mb0 form-control parent_prompt"  placeholder="请选择" value="请选择" >	
+	</div>
+	<label>二级选项</label>
+    <div>
+		<input  type="text" class="mb0 form-control child_prompt"  placeholder="请选择" value="请选择">	
+	</div>
+	<div class="component-heading mt10 mb10">校验</div>
+	<div class='check_box'>
+		<div class="component-field">
+            <div class="component-value">
+            	 <input type="checkbox" class="require_check"><span class="component-validate">必须填</span>
+            </div>
+        </div>	
+	</div>
+</div>	

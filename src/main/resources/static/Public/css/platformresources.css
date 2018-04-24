@@ -1,0 +1,88 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+/*头部*/
+.list-head{
+   position: fixed;
+	top: 0;
+	width: 100%;
+	height: 50px;
+	background: #6a6a6a;
+	color: #fff;
+	z-index: 10;
+}
+.title{
+    display: inline-block;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 10%;
+}
+.btn-back{
+   position: fixed;
+    right: 27px;
+    top: 6px;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/*主体*/
+.list-body{
+   
+}
+.list-content{
+    width: 730px;
+    margin: auto;
+    margin-top: 70px;
+    height: 402px;
+}
+.list-item{
+	 box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    -ms-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    width: 250px;
+    height: 300px;
+    background: #fff;
+    text-align: center;
+    display: inline-block;
+    margin: 50px;
+   	float: left;
+   	cursor: pointer;
+}
+.list-item-img{
+    width: 200px;
+    background: #6181aa;
+    margin-top: 25%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.list-item-img > img{
+    width: 170px;
+    height: 50px;
+}
+.list-item-text{
+    margin-top: 40%;
+    font-size: 18px;
+    font-weight: bold;
+    color: #32b4ca;
+}
+/*底部*/
+.list-footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    background: #6a6a6a;
+    color: #fff;
+    text-align: center;
+}
+.copyright{
+    margin-top: 5px;
+    font-size: 14px;
+}
+.record{
+    font-size: 12px;
+}

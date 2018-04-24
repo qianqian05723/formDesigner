@@ -1,0 +1,6 @@
+server:
+  context-path: /FormDesign
+
+spring:
+  thymeleaf:
+    cache: false

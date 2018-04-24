@@ -1,0 +1,355 @@
+.mb0{margin-bottom: 0px!important;}
+.mt0{margin-top: 0px!important;}
+.mb10{margin-bottom: 10px!important;}
+.ml0{margin-left: 0px!important;}
+.mr0{margin-right: 0px!important;}
+.mg0{margin: 0px!important;}
+.mt10{margin-top: 10px!important;}
+.ml25{margin-left: 25px;}
+
+html{
+   /* height: 100%;*/
+    background-image: url(../images/form_bg.png);
+}
+body{
+    height: 100%;
+   
+}
+.build-line{
+    margin-left: -40px;
+    margin-right: -40px;
+    border-top: 1px solid #C3C9D0;
+    border-bottom: 1px solid #e9e9e9;
+}
+#target {
+	min-height: 200px;
+    margin: 0 10px 20px;
+}
+#target .component{
+	cursor: pointer;
+    padding-top: 15px;
+	/*padding-bottom: 15px;*/
+	position: relative;
+    padding-left: 5px;
+    padding-right: 5px;
+    box-sizing: border-box;
+    text-align: left;
+    width: 100%;
+    float: left;
+}
+.clear{
+    clear:both;
+}
+#source {
+	min-height: 500px;
+}
+/*title*/
+.form-title{
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: left;
+    color: #222;
+    padding: 25px 0 10px;
+    margin: 0;
+}
+.form-describe{
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: normal;
+    text-align: left;
+    color: #222;
+    margin: 0 0 11px;
+}
+.clearfix{
+	/*margin-top: 20px;*/
+    padding-bottom: 10px;
+}
+/*左边部门*/
+.container{
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    background-image: url(../images/form_bg.png);
+    
+}
+.container .form_build{
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 780px;
+    border-width: 0;
+    border-color: rgb(106, 106, 106);
+    margin: auto;
+    margin-top: 3%;
+    padding: 40px 40px 60px 40px;
+    background-color: #f8f8f6;
+    padding-top: 20px;
+}
+.form_build .title{
+    height: 40px;
+    background-color: #6A6A6A;
+    width: 860px;
+    margin-left: -40px;
+    margin-top: -20px;
+}
+.container .form_titlename{
+    width: 100%;
+    height: 40px;
+    margin-top: 15px;
+    box-sizing: border-box;
+    margin-top: 0px;
+}
+.container .form_titlename_label{
+	text-align: left;
+    margin-bottom: 5px;
+    margin-top: 13px;
+    padding-left: 4px;
+}
+/*表单的提交按钮*/
+.button-group{
+    text-align: center;
+    padding-top: 20px;
+}
+.button_component{
+	height: 60px;
+    cursor: pointer;
+   	display: inline-block;
+    margin-top: -20px;
+    margin-right: 40px;
+}
+.form_submit_btn{
+   padding: 8px 40px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 12px;
+    background-color: #6A6A6A;
+    color: white;
+}
+/*表单的暂存按钮*/
+.temporary_component{
+    height: 60px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: -20px;
+}
+.form_temporary_btn{
+    padding: 8px 40px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 12px;
+    background-color: #6A6A6A;
+    color: white;
+}
+/*返回编辑*/
+.back-edit{
+    position: fixed;
+    top: 15px;
+    right: 66px;
+    display: inline-block;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    z-index: 99999999;
+    background: #fff;
+    color: #222;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    opacity: 0.7;
+    cursor: pointer;
+}
+.back-edit:hover{
+    opacity: 1;
+}
+#icon-back-edit{
+    font-size: 26px;
+    margin-top: 3px;
+}
+.back-tag{
+    top: 55px;
+    right: 45px;
+    width:75px;
+    height:32px;
+    background: #6A6A6A;
+    position:fixed;
+    z-index: 99999999;
+    color: #fff;
+    text-align: center;
+    vertical-align:middle;
+    line-height: 32px;
+    border-radius: 3px;
+    font-size: 12px;
+    display: none;
+}
+.back-tag em{
+    display:block;
+    border-width:10px;
+    position:absolute;
+    bottom:32px;
+    left:28px;
+    border-style: dashed dashed solid;
+    border-color: transparent transparent #6A6A6A;
+    font-size:0;
+    line-height:0;
+}
+/*返回编辑*/
+.publish-form{
+    position: fixed;
+    top: 15px;
+    right: 35px;
+    display: inline-block;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    z-index: 99999999;
+    background: #fff;
+    color: #222;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    opacity: 0.7;
+    cursor: pointer;
+}
+.publish-form:hover{
+    opacity: 1;
+}
+#icon-publish-form{
+    font-size: 26px;
+    margin-top: 3px;
+}
+.publish-tag{
+    top: 55px;
+    right: 15px;
+    width:75px;
+    height:32px;
+    background: #6A6A6A;
+    position:fixed;
+    z-index: 99999999;
+    color: #fff;
+    text-align: center;
+    vertical-align:middle;
+    line-height: 32px;
+    border-radius: 3px;
+    font-size: 12px;
+    display: none;
+}
+.publish-tag em{
+    display:block;
+    border-width:10px;
+    position:absolute;
+    bottom:32px;
+    left:28px;
+    border-style: dashed dashed solid;
+    border-color: transparent transparent #6A6A6A;
+    font-size:0;
+    line-height:0;
+}
+/*组件样式*/
+.icons{
+    position: absolute;
+    left: 0;
+    top: 5px;
+    text-align: center;
+}
+.icon-grid{
+    height: 4px;
+    border: 1px solid #EB8D1F;
+    display: inline-block;
+    margin: 6px 0;
+}
+.icon-grid-1{
+    width: 18px;
+    border-left-width: 6px;
+}
+.icon-grid-2{
+    width: 12px;
+    border-left-width: 12px;
+}
+.icon-grid-3{
+    width: 6px;
+    border-left-width: 18px;
+}
+.control-label:after{
+    content: attr(data-afterContent);
+    font-weight: bold;
+    color: #222;
+}
+.control-label{
+    display: inline-block;
+    margin-left: 25px;
+    text-align: center;
+}
+.componentControl{
+    position: relative;
+    margin-left: 25px;
+}
+.required_red{
+    color: red;
+}
+/*****************textarea***************************/
+.componentControl > textarea{
+    resize: none;
+    width: 96%;
+    height: 50px;
+}
+/*****************number***************************/
+#icon-number{
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    font-size: 14px;
+}
+/*****************time***************************/
+.select-minute{
+    margin-left: 10px;
+}
+.select-second{
+    margin-left: 10px;
+}
+/*****************date***************************/
+#icon-date{
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    font-size: 14px;
+}
+/*****************mobilePhone***************************/
+#icon-phone{
+    position: absolute;
+    top: 3px;
+    left: 7px;
+    font-size: 28px;
+}
+/*****************telePhone***************************/
+#icon-telephone{
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    font-size: 20px;
+}
+/*****************address***************************/
+.addressInput{
+    margin-left: 25px;
+    margin-top: 5px;
+}
+.addressInput > input{
+    width: 60%;
+}
+/*****************groupTitle***************************/
+.groupTitle{
+    height: 30px;
+    line-height:30px;
+    background: #6A6A6A;
+    color: #fff;
+    font-weight: bold;
+    opacity: 0.3;
+    border-top:3px solid #222;
+    padding-left: 25px;
+}
+/******************提交按钮*****************************/
+.btnShadow{
+    box-shadow:6px 6px 5px #888888;
+    -moz-box-shadow:6px 6px 5px #888888;
+    -webkit-box-shadow:6px 6px 5px #888888;
+}

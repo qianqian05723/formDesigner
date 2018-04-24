@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 指定工作空间，要与接口名相同，源代码没有去看，猜测应该是通过“这里的namespace.下边的方法id”来定位方法的 -->
+<mapper namespace="com.wingconn.govForm.mapper.CreateTableMapper">
+    <update id="alterTableName">
+        ALTER TABLE ${originalTableName} RENAME ${newTableName};
+    </update>
+    
+    <update id="truncateTable">
+        truncate TABLE ${tableName};
+    </update>
+    
+    <update id="createNewTableAndInsertData">
+        CREATE TABLE ${newTableName} AS SELECT * FROM ${originalTableName};
+    </update>
+
+    <update id="createNewTable">
+        CREATE TABLE ${tableName} (
+          ${tableStatement}
+        );
+    </update>
+    
+    <select id="getRecordCount" resultType="int">
+        SELECT COUNT(1) FROM ${tableName};
+    </select>
+    
+    <select id="getCurDataBaseName" resultType="string">
+        SELECT database();
+    </select>
+    
+    <select id="isTargetTableExistInDB" resultType="string">
+        SELECT TABLE_NAME FROM information_schema.tables WHERE table_schema = 'form' AND TABLE_NAME = #{tableName};
+    </select>
+
+    <select id="showFields" resultType="String">
+        show columns from ${tableName};
+    </select>
+
+    <select id="showTableFields" resultMap="tableFieldResultMap">
+        DESC ${tableName};
+    </select>
+
+    <!-- 向表中添加新字段 -->
+    <update id="addField">
+        ALTER TABLE ${tableName} ADD COLUMN
+        <foreach collection="fields" item="field" index="index" open="(" close=")" separator=",">
+          ${field} VARCHAR(255)
+        </foreach>
+        ;
+    </update>
+
+    <resultMap id="tableFieldResultMap" type="com.wingconn.govForm.domain.TableFields">
+        <result column="Field" property="field" />
+        <result column="Type" property="type" />
+        <result column="Null" property="Null" />
+        <result column="Default" property="Default" />
+        <result column="Extra" property="extra" />
+    </resultMap>
+</mapper>

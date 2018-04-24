@@ -1,0 +1,303 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>政务表单简易填报系统</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<link rel="stylesheet" type="text/css" href="../static/Public/externals/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="../static/Public/externals/font-awesome-4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="../static/Public/css/index.css" />
+	<link rel="stylesheet" type="text/css" href="../static/Public/css/common.css"/>
+</head>
+<body>
+	<div class="list-head">
+		<div class="title">政务表单简易填报系统</div>
+	</div>
+
+	<div class="list-body">
+		<div class="list-content">
+			<div class="list-group-form-menu">
+				<div class="list-item" id="blankForm" style="cursor: pointer;">
+					<div class="list-item-icon"><i class="fa fa-plus item-icon form-build-icon"></i></div>
+					<div class="list-item-text add-form-text">创建表单</div>
+				</div>
+				<div class="list-item" id="formTemplate" style="cursor: pointer;">
+					<div class="list-item-icon"><i class="fa fa-suitcase item-icon form-template-icon"></i></div>
+					<div class="list-item-text">表单模板管理</div>
+				</div>
+				<div class="list-item" id="formField" style="cursor: pointer;">
+					<div class="list-item-icon"><i class="fa fa-wordpress item-icon field-icon"></i></div>
+					<div class="list-item-text">加强字段管理</div>
+				</div>
+			</div>
+			<div class="list-group-form-item">
+				<!--<div class="list-item" id="form_c20e0e791eec4ff1bc21035404a13a77">
+					<div class="list-item-title">
+						111
+					</div>
+					<div class="list-item-icon" >
+						<img src="../static/Public/images/item-icon-ju.png" />
+					</div>
+					<img class='no-release' src="../static/Public/images/no-release.png"/>
+					<div class='delete-item'>
+						<i class='fa fa-trash-o' data-toggle="tooltip" data-placement="bottom" title="删除"></i>
+					</div>
+					<div class="item-btn-group">
+						<i class='fa fa-edit' data-toggle="tooltip" data-placement="bottom" title="编辑"></i>
+						<i class='fa fa-inbox' data-toggle="tooltip" data-placement="bottom" title="添加到摸板"></i>
+						<i class="fa fa-cloud-download" data-toggle="tooltip" data-placement="bottom" title="下载表单摸板"></i>
+						<i class="fa fa-download" data-toggle="tooltip" data-placement="bottom" title="下载资源配置文件"></i>
+					</div>
+				</div>-->
+			</div>
+		</div>
+		<a href="javascript:void(0)" class="loadingMore">加载更多</a>
+	</div>
+	<div class="list-footer">
+		<div class="copyright">Copyright © 2017 云坤信息 All Rights Reserved</div>
+		<div class="record">ICP备案：XXXXX</div>
+	</div>
+
+	<!--删除提示-->
+	<div class="modal fade" id="dialog_delete" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><img src="../static/Public/images/close.png" /></button>
+					<h4 class="modal-title">操作提示</h4>
+				</div>
+				<div class="modal-body">
+					<img class="icon_warning" src="../static/Public/images/icon_warning.png"><span class="txt_tip">确定要删除该表单吗？</span>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary dialog_delete_btn" data-id=''>确定</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--操作成功失败-->
+	<div class="result_tip" id="op_tip">
+		<div class="inner_content">
+		</div>
+	</div>
+	<!-- 加载 -->
+	<div class='mask'><div class='loadbox'><span class='loadtxt'><i class='fa fa-spinner fa-pulse'></i>数据加载中，请稍等……</span></div></div> 
+	<script type="text/javascript" src="../static/Public/externals/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="../static/Public/externals/bootstrap/js/bootstrap-3.3.7.min.js"></script>
+	<script type="text/javascript">
+        var pageSize = 10;//每页的条数
+        var pageNum = 1; //设置当前页数，全局变量
+        var allamount=0;//总摸板条数
+        $(document).ready(function(){
+            //每次加载index页面清空sessionStorage数据
+            clearsession();
+            //初始化加载第一页数据
+            getData(1);            
+
+            //绑定onclick事件
+            $("#blankForm").on("click",function(){
+                //跳转加载平台资源页面
+                window.location.href = "platformresources.html";
+            });
+
+            $("#formTemplate").on("click",function(){
+                //表单模板管理页面
+				//TODO：表单模板管理页面
+                alert("开发人员正在昼夜不停地开发中...");
+            });
+
+            $("#formField").on("click",function(){
+                //跳转加强字段管理页面
+                window.location.href = "createfield.html";
+            });
+			
+			
+			 //继续加载按钮事件
+
+            $(".loadingMore").click(function () {
+            	pageNum++; //页码自动增加，保证下次调用时为新的一页。
+                getData(pageNum);
+            });
+			
+        });
+        
+       	//根据页数读取数据
+        function getData(pagenumber) {
+        	$(".mask").show();
+            $.ajax({
+                type: "GET",
+                url: "../form/design/list",
+                async: false,
+                data: {
+                    page: pagenumber,
+                    pageSize: pageSize
+				},
+                dataType: "json",
+                success: function (data) {
+                	$(".mask").hide();
+                    if (data.success) {
+                        var dataArray = data.returnValue.data;
+                        allamount=data.returnValue.count;
+                        insertDiv(dataArray);
+                        if(pagenumber >= Math.ceil(allamount/10))
+                        {
+                        	$(".loadingMore").hide();
+                        }else{
+                        	$(".loadingMore").show();
+                        }
+                    }
+                },
+                error: function () {}
+            });
+        }
+        
+        //生成数据html,append到div中
+        function insertDiv(dataArray) {
+        	console.log(dataArray);
+            var html = '';
+            for (var i = 0; i < dataArray.length; i++) {
+            	var item=dataArray[i];
+            	var btn_group='';
+            	
+        		var formTypestr="";		
+            	if(item.formType == "1")
+            	{
+            		//居民通
+            		formTypestr='<img src="../static/Public/images/item-icon-ju.png" />';
+            	}else{
+            		//企业通
+            		formTypestr='<img src="../static/Public/images/item-icon-qi.png" />';
+            	}
+            	var statusstr="";
+            	if(item.status == "1")
+            	{
+            		//已经订阅
+            		btn_group='<div class="item-btn-group">'
+            					+'<i class="fa fa-edit" onclick=edit_form_item("'+item.formId+'") data-toggle="tooltip" data-placement="bottom" title="编辑"></i>'
+            					+'<i class="fa fa-inbox" onclick=addpanel_form_item("'+item.formId+'") data-toggle="tooltip" data-placement="bottom" title="添加到摸板"></i>'
+            					+'<a href="../form/design/download/'+item.formId+'/0"><i class="fa fa-cloud-download"  data-toggle="tooltip" data-placement="bottom" title="下载表单摸板"></i></a>'
+            					+'<a href="../form/design/download/'+item.formId+'/1"><i class="fa fa-download"  data-toggle="tooltip" data-placement="bottom" title="下载资源配置文件"></i></a>'
+            				+'</div>';
+            	}else{
+            		//未订阅
+            		statusstr='<img class="no-release" src="../static/Public/images/no-release.png"/>';
+            		btn_group='<div class="item-btn-group">'
+            					+'<i class="fa fa-edit" onclick=edit_form_item("'+item.formId+'") data-toggle="tooltip" data-placement="bottom" title="编辑"></i>'
+            				+'</div>';
+            	}
+                html = '<div class="list-item">'
+                    		+'<div class="list-item-title">'
+                    			+item.formName
+                    		+'</div>'
+                    		+'<div class="list-item-icon" onclick=open_form_item("'+item.formId+'","'+item.status+'")>'
+                    			+formTypestr
+                    		+'</div>'
+                    		+statusstr
+                    		+'<div class="delete-item" onclick=delete_form_item("'+item.formId+'")>'
+                    			+'<i class="fa fa-trash-o" data-toggle="tooltip" data-placement="bottom" title="删除"></i>'
+                    		+'</div>'
+                    		+btn_group
+                		+'</div>';
+                		
+    			$(".list-group-form-item").append(html);
+            }
+            
+            $("[data-toggle='tooltip']").tooltip({
+		        //指定显示时延迟和消失时延迟
+		        delay: {show: 100, hide: 300}
+		    });
+        }
+        
+        //打开表单
+        function open_form_item(formid,status){
+        	if(status == '1')
+        	{
+        		window.location.href ="../preview.html?formid="+formid;
+        	}else{
+        		showMessageTips(false,"表单发布以后才能点击查看");
+        	}
+        }
+        //点击编辑
+        function edit_form_item(formid){
+        	console.log(formid);
+        	$(".mask").show();
+        	 $.ajax({
+                    type:"GET",
+                    url:"../form/design/edit/"+formid,
+                    success:function(data){
+                    	 $(".mask").hide();
+                        if(data.success == true) {
+                           var obj = JSON.parse(data.returnValue);
+                           sessionStorage.setItem("edit_formName",obj.formName);
+                           sessionStorage.setItem("edit_formDescribe",obj.formDescribe);
+                           sessionStorage.setItem("formType",obj.formType);
+                           sessionStorage.setItem("formId",formid);
+                           sessionStorage.setItem("edit_formContent",obj.formEditContent);
+                           sessionStorage.setItem("currentOption","edit");
+                           window.location.href = "formbuild.html?callback="+encodeURIComponent("index");
+                        }
+                    }
+                });
+        }
+        //点击添加到摸板
+        function addpanel_form_item(formid){
+        	console.log(formid);
+        }
+		//删除表单摸板
+		function delete_form_item(formid){
+			$("#dialog_delete").find(".dialog_delete_btn").attr("data-id",formid);
+			$("#dialog_delete").modal("show");
+		}
+		//点击删除
+        $("#dialog_delete").on("click",".dialog_delete_btn",function(){
+                var id= $(this).attr("data-id");
+                $("#dialog_delete").modal("hide");
+                $(".mask").show();
+      			$.ajax({
+                    type:"DELETE",
+                    url:"../form/design/remove/"+id,
+                    success:function(data){
+                        $(".mask").hide();
+                        if(data.success) {
+                            showMessageTips(data.success,"删除成功");
+                            //刷新首页列表
+                            pageNum = 1;
+                            $(".list-group-form-item").html("");
+                            getData(pageNum);
+                        }else{
+                            showMessageTips(data.success,data.errorReason);
+                        }
+                    }
+                });
+           });
+           
+        //清除session
+        function clearsession(){
+        	sessionStorage.removeItem("edit_formName");
+        	sessionStorage.removeItem("edit_formDescribe");
+        	sessionStorage.removeItem("formType");
+        	sessionStorage.removeItem("formId");
+        	sessionStorage.removeItem("edit_formContent");
+        	sessionStorage.removeItem("currentOption");
+        }
+        function showMessageTips(ressultFlag,message) {
+            var showTip = "";
+            if(ressultFlag){
+                showTip = '<p class="success_tip"><i class="icon_success"></i>'+message+'</p>';
+            }else{
+                showTip = '<p class="fail_tip"><i class="icon_fail"></i>'+message+'</p>';
+            }
+            $('#op_tip .inner_content').html(showTip);
+            $('#op_tip').modal("show");
+            setTimeout(function(){$('#op_tip').modal("hide");}, 1500);
+        }
+
+	</script>
+</body>
+
+</html>

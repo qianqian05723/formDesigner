@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="public/externals/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="public/externals/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="public/externals/jquery-datepicker/css/jquery-ui.css" />
+    <link rel="stylesheet" href="public/externals/jquery-datepicker/css/jquery-ui.theme.css" />
+    <link rel="stylesheet" href="public/css/form.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/edit.css"/>
+    <link rel="stylesheet" type="text/css" href="public/css/text.css"/>
+</head>
+<body>
+<div class='container'>

@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://10.10.12.82:3306/form?useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true
+    username: root
+    password: 123@abcd
+  profiles:
+    active: dev
+
+  # 静态资源路径
+  mvc:
+    static-path-pattern: /**
+  # 资源路径
+  resources:
+#    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,classpath:/templates/,file:${storage.location}
+    static-locations: file:${storage.location},classpath:/
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.wingconn.govForm.domain
+
+# FTP服务器参数配置
+FTP:
+  hostname: 10.10.12.82
+  port: 21
+  username: ftpAdmin
+  password: 123@abcd
+  pathname: view
+
+storage:
+  location: view/
+  html-prefix: config/htmlPrefix.txt
+  html-suffix: config/htmlSuffix.txt
+  config: config/
+

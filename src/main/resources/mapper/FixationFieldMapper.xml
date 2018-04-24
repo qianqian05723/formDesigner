@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 指定工作空间，要与接口名相同，源代码没有去看，猜测应该是通过“这里的namespace.下边的方法id”来定位方法的 -->
+<mapper namespace="com.wingconn.govForm.mapper.FixationFieldMapper">
+    <insert id="saveOne" parameterType="com.wingconn.govForm.domain.FixationFieldDO">
+      INSERT INTO t_fixation_field
+        (form_type, fixation_field_name, api_model_id, api_url, api_field, creater_id, need_subscribe)
+      VALUES (#{formType}, #{fixationFieldName}, #{apiModelId}, #{apiUrl}, #{apiField}, #{createrId}, #{subscribe});
+    </insert>
+    
+    <update id="updateOne" parameterType="FixationFieldDO">
+      UPDATE t_fixation_field <include refid="updateSql" /> WHERE id=#{id}
+    </update>
+
+    <select id="getById" resultMap="fixationFieldMap">
+        SELECT * FROM t_fixation_field WHERE id=#{id};
+    </select>
+
+    <select id="listPage" resultMap="fixationFieldMap">
+        SELECT * FROM t_fixation_field ORDER BY id DESC limit #{limit} offset #{offset};
+    </select>
+
+    <select id="listFormTypePage" resultMap="fixationFieldMap">
+        SELECT * FROM t_fixation_field WHERE form_type=#{formType} ORDER BY id DESC  limit #{limit} offset #{offset};
+    </select>
+
+    <select id="listFilterPage" resultMap="fixationFieldMap">
+        SELECT * FROM t_fixation_field WHERE fixation_field_name LIKE concat('%', #{filter}, '%') ORDER BY id DESC  limit #{limit} offset #{offset};
+    </select>
+
+    <select id="listFormTypeFilterPage" resultMap="fixationFieldMap">
+        SELECT * FROM t_fixation_field WHERE form_type=#{formType} AND fixation_field_name LIKE concat('%', #{filter}, '%') ORDER BY id DESC  limit #{limit} offset #{offset};
+    </select>
+
+    <delete id="removeById">
+        DELETE FROM t_fixation_field WHERE id=#{id};
+    </delete>
+
+    <select id="countAllRecords" resultType="int">
+        SELECT count(id) FROM t_fixation_field;
+    </select>
+
+    <!-- 获取指定id列表的行 -->
+    <select id="listField" resultMap="fixationFieldMap">
+        SELECT * FROM t_fixation_field WHERE id in
+        <foreach collection="list" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </select>
+
+    <select id="countFilterRecords" resultType="int">
+        SELECT count(id) FROM t_fixation_field
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="null != formType and '' != formType">form_type=#{formType}</if>
+            <if test="null != fixationFieldName and '' != fixationFieldName">AND fixation_field_name LIKE concat('%', #{fixationFieldName}, '%')</if>
+        </trim>
+        ;
+    </select>
+
+    <select id="exist" parameterType="com.wingconn.govForm.domain.FixationFieldDO" resultType="int">
+        SELECT count(id) FROM t_fixation_field
+        <where>
+            <if test="null != formType and '' != formType">form_type=#{formType}</if>
+            <if test="null != fixationFieldName and '' != fixationFieldName"> AND fixation_field_name=#{fixationFieldName}</if>
+            <if test="null != apiModelId and '' != apiModelId"> AND api_model_id=#{apiModelId}</if>
+            <if test="null != apiUrl and '' != apiUrl"> AND api_url=#{apiUrl}</if>
+            <if test="null != subscribe and '' != subscribe"> AND need_subscribe=#{subscribe}</if>
+            <if test="null != apiField and '' != apiField"> AND api_field=#{apiField}</if>
+            <if test="null != id and '' != id"> AND id!=#{id}</if>
+        </where>
+    </select>
+
+    <!-- 更新 set 语句 -->
+    <sql id="updateSql">
+        <trim prefix="set" suffixOverrides=",">
+            id=#{id},
+            <if test="null != formType and '' != formType">form_type=#{formType},</if>
+            <if test="null != fixationFieldName and '' != fixationFieldName">fixation_field_name=#{fixationFieldName},</if>
+            <if test="null != apiModelId and '' != apiModelId">api_model_id=#{apiModelId},</if>
+            <if test="null != apiUrl and '' != apiUrl">api_url=#{apiUrl},</if>
+            <if test="null != subscribe and '' != subscribe">need_subscribe=#{subscribe},</if>
+            <if test="null != apiField and '' != apiField">api_field=#{apiField}</if>
+            <if test="null != modifierId and '' != modifierId">modifier_id=#{modifierId},</if>
+            <if test="null != modifierName and '' != modifierName">modifier_name=#{modifierName},</if>
+        </trim>
+    </sql>
+
+
+
+    <resultMap id="fixationFieldMap" type="com.wingconn.govForm.domain.FixationFieldDO">
+        <id column="id" property="id" />
+        <result column="form_type" property="formType" />
+        <result column="fixation_field_name" property="fixationFieldName" />
+        <result column="api_model_id" property="apiModelId" />
+        <result column="need_subscribe" property="subscribe" />
+        <result column="api_url" property="apiUrl" />
+        <result column="api_field" property="apiField" />
+        <result column="creater_id" property="createrId" />
+        <result column="creater_name" property="createrName" />
+        <result column="create_date" property="createDate" />
+        <result column="modifier_id" property="modifierId" />
+        <result column="modifier_name" property="modifierName" />
+        <result column="update_date" property="updateDate" />
+    </resultMap>
+</mapper>

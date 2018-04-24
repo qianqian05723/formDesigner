@@ -1,0 +1,65 @@
+<div class="controls">
+    <div class="component-heading">时间</div>
+    <div class="component-content">
+        <div class="component-field">
+            <label class="component-label">标题</label>
+            <div class="component-value">
+                <input type="text" id="componentName_{{:componentID}}" placeholder="时间" value="">
+                <span ></span>
+            </div>
+        </div>
+        <div class="component-field">
+            <label class="component-label">默认值</label>
+            <div class="component-date">
+                <i id="icon-editDate" class="fa fa-calendar"></i>
+                <input class="date-picker" id="editDatePicker_{{:componentID}}" style="border-left-width: 25px" type="text" value="" >
+            </div>
+        </div>
+    </div>
+
+    <div class="component-heading">校验</div>
+    <div class="component-content">
+        <div class="component-field">
+            <div class="component-value">
+                <input type="checkbox" id="required_{{:componentID}}" value="" /><span class="component-validate">必须填</span>
+            </div>
+        </div>
+        <div class="component-field">
+            <div class="component-value">
+                <input type="checkbox" id="dateStart_{{:componentID}}" value="" />
+                <span class="component-validateDate">起始日期<i id="icon-startDate" class="fa fa-calendar"></i><input type="text" class="date-picker" id="dateStartValue_{{:componentID}}" value=""  style="border-left-width: 25px;margin-left: 5px"></span>
+            </div>
+        </div>
+        <div class="component-field">
+            <div class="component-value">
+                <input type="checkbox" id="dateEnd_{{:componentID}}" value="" />
+                <span class="component-validateDate">结束日期<i id="icon-endDate" class="fa fa-calendar"></i><input type="text" class="date-picker" id="dateEndValue_{{:componentID}}" value=""  style="border-left-width: 25px;margin-left: 5px"></span>
+            </div>
+            <div class="error_tip ml15" id="errorTip_{{:componentID}}">结束日期的值必须大于起始日期的值</div>
+        </div>
+        <div class="component-field">
+            <div class="component-value">
+                <input type="checkbox" id="errorContent_{{:componentID}}" value="" /><span class="component-validate">自定义出错文案</span>
+                <input type="text" id="errorContentValue_{{:componentID}}" value="">
+            </div>
+        </div>
+    </div>
+
+    <div class="component-heading">布局设置</div>
+    <div class="component-content">
+        <div class="component-field">
+            <div class="component-value">
+                <input type="checkbox" id="width_{{:componentID}}" value="" />
+                <span class="component-layout">宽度占用整行的：<select id="widthValue_{{:componentID}}">
+                    <option value=""></option>
+                    <option value="25%">1/4</option>
+                    <option value="50%">1/2</option>
+                    <option value="75%">3/4</option>
+                </select></span>
+            </div>
+            <div class="component-newRow">
+                <input type="checkbox" id="newRow_{{:componentID}}" value="" /><span class="component-other">新起一行</span>
+            </div>
+        </div>
+    </div>
+</div>

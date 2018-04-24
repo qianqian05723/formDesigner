@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>发布成功</title>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="../static/Public/css/formbuild.css" />
+    <link rel="stylesheet" href="../static/Public/externals/font-awesome-4.7.0/css/font-awesome.min.css" />
+
+    <style type="text/css">
+        body{
+            background: #fff;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+        <div class="content-bg">
+            <div class="content-display">
+                <i id="icon-success" class="fa fa-check-circle"></i>
+                <div class="text-success">表单发布成功</div>
+                <div class="time-count">页面将在<span id="num" style="color: red">3</span>秒后跳转...</div>
+                <a class="link-close">关闭</a>
+            </div>
+        </div>
+        <div class="copyright">Copyright © 2017 云坤信息 All Rights Reserved</div>
+        <div class="record">ICP备案：XXXXX</div>
+
+        <script type="text/javascript" charset="utf-8" src="../static/Public/externals/jquery-3.2.1.min.js"></script>
+        <script>
+            $(function(){
+                $(".content-display").on("click",".link-close",function(){
+                    window.location.href = "index.html";
+                });
+
+                function jump(count) {
+                    window.setTimeout(function(){
+                        count--;
+                        if(count > 0) {
+                            $("#num").text(count);
+                            jump(count);
+                        } else {
+                            window.location.href = "index.html";
+                        }
+                    },1000);
+                }
+                jump(3);
+            })
+        </script>
+</body>
+</html>

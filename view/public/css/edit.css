@@ -1,0 +1,282 @@
+
+.horizontal_array{
+	display: inline-block;
+    margin-right: 10px;
+}
+.radio_list label{
+	cursor: pointer;
+}
+/*checkbox*/
+.checkbox_select_num{
+    font-size: 14px;
+    margin-left: 10px;
+}
+/*dropdown下拉框*/
+.dropdowm_template .dropdown-menu{
+	font-size: 14px;
+}
+.dropdowm_template .dropdown-menu .dropdown_item,.dropdowm_template .dropdown-menu .dropdown_item_default{
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+.dropdowm_template .dropdown-menu .dropdown_item:hover,.dropdowm_template .dropdown-menu .dropdown_item_default:hover{
+	background-color: rgb(245,245,245);
+}
+
+.component_dropdownbtn{
+	max-width: 150px;
+	min-width: 100px;
+	white-space:nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	position: relative;
+	padding-right: 20px;
+	text-align: left;
+}
+.component_dropdownbtn:after{
+	content: "";
+    width: 0px;
+    height: 0px;
+    border-left: 5px solid transparent;
+    border-top: 5px solid #000;
+    border-right: 5px solid transparent;
+    position: absolute;
+    right: 7px;
+    top: 12px;  
+}
+#target .component_dropdownbtn{
+	width: 260px;
+	max-width: 260px;
+}
+/**上传图片**/
+.uploadimg_box,.uploadfile_box{
+    width: 180px;
+    height: 48px;
+    border: 1px dashed #999999;
+    cursor: pointer;
+    position: relative;
+}
+.uploadimg_box .fiel_box,.uploadfile_box .fiel_box{
+    margin: 0px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 33;
+}
+.uploadimg_box .fiel_box input,.uploadfile_box .fiel_box input{
+    width: 100%;
+    height: 48px;
+    opacity: 0;
+    cursor: pointer;
+}
+.uploadimg_box .fa,.uploadfile_box .fa{
+    position: absolute;
+    font-size: 22px;
+    text-align: center;
+    top: 6px;
+    left: 70px;
+}
+.uploadimg_box p,.uploadfile_box p{
+    margin: 0px;
+    text-align: center;
+    margin-top: 27px;
+    font-size: 12px;
+}
+.uploadimg_template .uploadimg_rander,.uploadfile_template .uploadfile_rander {
+	width: 120px;
+	height: 90px;
+	border: 1px dashed #ddd;
+	margin-top: 10px;
+	text-align: center;
+	position: relative;
+	display: none;
+}
+.uploadimg_template .uploadimg_rander img,.uploadfile_template .uploadfile_rander img{
+	max-width: 100%;
+	max-height: 100%;
+}
+.uploadimg_template .uploadimg_rander .uploadimg_delete,.uploadfile_template .uploadfile_rander .uploadfile_delete{
+    position: absolute;
+    margin: 0px;
+    right: -36px;
+    bottom: 0px;
+    cursor: pointer;
+    color: red;
+}
+/**两级下拉框**/
+.cascadedropdown_template .component_cascadedropdown{
+	width: 160px;
+	max-width: 160px;
+	min-width: 100px;
+	white-space:nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	position: relative;
+	padding-right: 20px;
+	text-align: left;
+}
+.cascadedropdown_template .cascadedropdown,.cascadedropdown_template .cascadedropdown_child{
+    width: 152px;
+    position: relative;
+}
+.cascadedropdown_template .cascadedropdown_child{
+    margin-left: 192px;
+    margin-top: -30px;
+}
+.cascadedropdown_template .cascadedropdown:after{
+	content: "";
+    width: 0px;
+    height: 0px;
+    border-left: 5px solid transparent;
+    border-top: 5px solid #000;
+    border-right: 5px solid transparent;
+    position: absolute;
+    right: 7px;
+    top: 12px; 
+}
+.cascadedropdown_template .cascadedropdown_child:after{
+	content: "";
+    width: 0px;
+    height: 0px;
+    border-left: 5px solid transparent;
+    border-top: 5px solid #000;
+    border-right: 5px solid transparent;
+    position: absolute;
+    right: 7px;
+    top: 12px; 
+}
+.cascadedropdown_template .dropdown-menu{
+	font-size: 14px;
+}
+.cascadedropdown_template .dropdown-menu .dropdown_item,.cascadedropdown_template .dropdown-menu .dropdown_item_default{
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+.cascadedropdown_template .dropdown-menu .dropdown_item:hover,.cascadedropdown_template .dropdown-menu .dropdown_item_default:hover{
+	background-color: rgb(245,245,245);
+}
+.cascadedropdown_child_content{
+	list-style: none;
+	margin: 0px;
+	display: none;
+}
+.cascadedropdown_template .child_default_childitem{
+	display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+.cascadedropdown_template .child_default_childitem:hover{
+	background-color: rgb(245,245,245);
+}
+
+/*表格子表单*/
+.table_template .v-table{
+    background-color: rgba(255,255,255,0.65);
+    cursor: pointer;
+    margin-bottom: 0;
+    border: 1px solid #D9D9D9;
+    width: 805px;
+    max-width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    word-wrap: break-word;
+    font-size: 12px;
+    text-align: left;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-left: 25px;
+}
+.table_template .v-table thead{
+    font-size: 12px;
+    font-weight: normal;
+    background: #F1F1F1;
+}
+.table_template .v-table th:first-child{
+	font-weight: normal;
+    color: #222;
+    text-align: left;
+    min-width: 50px;
+    vertical-align: middle;
+    word-wrap: break-word;
+    padding-top: 6px;
+    padding-bottom: 5px;
+    border-bottom-width: 1px;
+    border: 1px solid #D9D9D9;
+}
+.table_template .v-table th{
+	font-weight: normal;
+    color: #222;
+    word-wrap: break-word;
+    padding-top: 6px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-top: 0;
+    border-bottom-width: 1px;
+    border: 1px solid #D9D9D9;
+    vertical-align: bottom;
+}
+
+.table_template .v-table td:first-child{
+    padding: 6px;
+    text-align: left;
+    min-width: 50px;
+    vertical-align: middle;
+    border: 1px solid #D9D9D9;
+}
+.table_template .v-table td{
+	    padding: 0;
+        vertical-align: middle;
+        text-align: center;
+        border: 1px solid #D9D9D9;
+}
+.table_template .v-table td input[type=text]{
+	border: 0;
+    width: 100%;
+    max-width: none;
+    height: 33px;
+    box-shadow: none;
+    margin: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background-color: rgba(255,255,255,0.65);
+    opacity: 1;
+    line-height: 33px;
+    vertical-align: top;
+    padding: 0 6px;
+    font-size: 1em;
+    font-weight: normal;
+    color: #222222;
+   /* background: #FFF;*/
+    border-radius: 2px;
+    -webkit-tap-highlight-color: transparent;
+    outline: none !important;
+    box-sizing: border-box;
+}
+
+/*必填*/
+.required_label:after{
+	content: '*'!important;
+    color: #FF3824!important;
+    margin-top: 7px;
+    display: inline-block;
+    line-height: 0;
+    vertical-align: middle;
+    margin-left: 5px;
+    font-size: 16px;
+}

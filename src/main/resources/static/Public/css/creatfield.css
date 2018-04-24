@@ -1,0 +1,105 @@
+.fleft{
+	float: left;
+}
+.content_box{
+	padding: 15px;
+}
+.top_title{
+	     /*border-bottom: none; */
+	     font-size: 12px;
+	     padding: 0px;
+}
+.top_title .top_name{
+	margin-right: 6px;
+}
+.color_4c4c4c{
+	color: #4c4c4c;
+}
+.color_989898{
+	color: #989898;
+}
+.color_7baeff{
+	color: #7baeff;
+}
+.color_508bea{
+	color: #508bea;
+}
+.color_666{
+	color: #666666;
+}
+.top_form{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.div_list{
+	
+}
+.div_border{
+	border:1px solid #e6e6e6;
+	min-height: 200px;
+}
+.list_header_box{
+	width: 100%;
+	height: 36px;
+}
+.list_header{
+    color: #000;
+    background: #f5f5f5;
+    position: relative;
+    border-bottom: none;
+    padding: 10px 15px;
+    vertical-align: middle;
+    font-weight: normal;
+}
+.list_header:before{
+	content: ""; width:1px; background: #fff;height:100%; position:absolute; top:0; left: 0
+}
+.list_header:first-child::before{display: none;}
+.item_box{
+	width: 100%;
+	height: 36px;
+	border-bottom: 1px solid #e3e3e3;
+	line-height: 36px;
+}
+.div_list .item_box:last-child{
+	border-bottom: none;
+}
+.div_list .item_box div{
+	overflow: hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+.line{
+	display: inline-block;
+    width: 1px;
+    height: 11px;
+    background-color: #a9a9a9;
+    margin: 0px 5px;
+    position: relative;
+    top: 1px;
+}
+/*创建企业弹出框*/
+#creat_company .modal-dialog{
+	width: 950px;
+	max-width: 950px;
+}
+.select_platform{
+	float: left;
+    width: 208px;
+   	margin-left: 10px;
+}
+.select_platform select{
+	width: 114px;
+}
+.a_line{
+	margin: 0 4px;
+    color: #999;
+    float: left;
+}
+.item_box a{
+	float: left;
+	cursor: pointer;
+}
+.item_box:hover{
+	background-color:#f3fcff
+}

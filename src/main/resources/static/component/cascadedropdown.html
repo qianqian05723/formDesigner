@@ -1,0 +1,58 @@
+<div class="component cascadedropdown_template"  data-type="cascadedropdown"  id="component_{{:textInputNum}}" data-default-selected="" data-required="false" data-width=''>
+  <label class="control-label component_title" >两级下拉框</label>
+  <br>
+	<div class="cascadedropdown ml25">
+	  <button class="btn btn-default dropdown-toggle component_cascadedropdown component_cascadedropdown_parent remove-disabled" type="button" id="component_cascadedropdownbtn{{:textInputNum}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-index='' disabled>
+	  	请选择
+	  </button>
+	  <ul class="dropdown-menu" aria-labelledby="component_cascadedropdownbtn{{:textInputNum}}">
+	  	<li class='dropdown_item_el cascadedropdown_parent_item dropdown_item_default'><span>请选择</span></li>
+	  	
+	    <li class='dropdown_item cascadedropdown_parent_item dropdown_item_el'>
+	    	<span>选项</span>
+	    	<ul class="cascadedropdown_child_content">
+	    		
+	    		<li class='dropdown_item_childel  child_default_childitem'>请选择</li>
+	    		
+	    		<li  class='dropdown_item child_item dropdown_item_childel'>子选项</li>
+	    		<li  class='dropdown_item child_item dropdown_item_childel'>子选项</li>
+	    		<li  class='dropdown_item child_item dropdown_item_childel'>子选项</li>
+	    	</ul>
+	    </li>
+	   <li class='dropdown_item cascadedropdown_parent_item dropdown_item_el'>
+	    	<span>选项</span>
+	    	<ul class="cascadedropdown_child_content">
+	    		
+	    		<li class='dropdown_item_childel child_default_childitem'>请选择</li>
+	    		
+	    		<li  class='dropdown_item child_item dropdown_item_childel'>子选项</li>
+	    		<li  class='dropdown_item child_item dropdown_item_childel'>子选项</li>
+	    		<li  class='dropdown_item child_item dropdown_item_childel'>子选项</li>
+	    	</ul>
+	    </li>
+	   <li class='dropdown_item cascadedropdown_parent_item dropdown_item_el'>
+	    	<span>选项</span>
+	    	<ul class="cascadedropdown_child_content">
+	    		
+	    		<li class='dropdown_item_childel child_default_childitem'>请选择</li>
+	    		
+	    		<li  class='dropdown_item child_item dropdown_item_childel'>子选项</li>
+	    		<li  class='dropdown_item child_item dropdown_item_childel'>子选项</li>
+	    		<li  class='dropdown_item child_item dropdown_item_childel'>子选项</li>
+	    	</ul>
+	    </li>
+	  </ul>
+	</div>
+	<div class="cascadedropdown_child">
+	  <button class="btn btn-default dropdown-toggle component_cascadedropdown component_cascadedropdown_child remove-disabled" type="button" id="component_cascadedropdownbtn_child{{:textInputNum}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" disabled>
+	  	 请选择
+	  </button>
+	  <ul class="dropdown-menu chiled_select_panel" aria-labelledby="component_cascadedropdownbtn_child{{:textInputNum}}">
+	   		<!--<li class='dropdown_item_childel child_default_childitem'>请选择</li>
+    		<li  class='dropdown_item child_item dropdown_item_childel'>子选项</li>
+    		<li  class='dropdown_item child_item dropdown_item_childel'>子选项</li>
+    		<li  class='dropdown_item child_item dropdown_item_childel'>子选项</li>-->
+	  </ul>
+	</div>
+  <div  class="delete_btn"  data-id="textComponent_{{:textInputNum}}" data-toggle="tooltip" data-placement="bottom" title="删除"><i class="fa fa-trash"></i></div>
+</div>

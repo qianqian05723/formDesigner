@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 指定工作空间，要与接口名相同，源代码没有去看，猜测应该是通过“这里的namespace.下边的方法id”来定位方法的 -->
+<mapper namespace="com.wingconn.govForm.mapper.FormUpdateMarkMapper">
+    <insert id="saveNewOne" parameterType="com.wingconn.govForm.domain.FormUpdateMarkDO">
+        INSERT INTO t_form_update_mark
+          (form_id, form_type, creater_id)
+           VALUES
+           (#{formId}, #{formType}, #{createrId});
+    </insert>
+
+    <insert id="saveModifyOne" parameterType="com.wingconn.govForm.domain.FormUpdateMarkDO">
+        INSERT INTO t_form_update_mark
+        (form_id, form_type, creater_id, update_mark)
+        VALUES
+        (#{formId}, #{formType}, #{createrId}, '1');
+    </insert>
+    
+    <update id="removeByFormIdInLogic">
+        UPDATE t_form_update_mark SET update_mark='2' WHERE form_id=#{formId};
+    </update>
+
+    <resultMap id="formUpdateMarkMap" type="com.wingconn.govForm.domain.FormUpdateMarkDO">
+        <id column="id" property="id" />
+        <result column="type" property="type" />
+        <result column="api_name" property="apiName" />
+        <result column="api_url" property="apiUrl" />
+        <result column="api_field" property="apiField" />
+        <result column="creater_id" property="createrId" />
+        <result column="creater_name" property="createrName" />
+        <result column="creater_date" property="createDate" />
+        <result column="modifier_id" property="modifierId" />
+        <result column="modifier_name" property="modifierName" />
+        <result column="update_date" property="updateDate" />
+    </resultMap>
+</mapper>

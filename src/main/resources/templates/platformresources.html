@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>政务表单简易填报系统</title>
+    <meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../static/Public/externals/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../static/Public/css/platformresources.css">
+</head>
+<body>
+    <div class="list-head">
+        <label class="title">选择创建表单平台</label>
+    	<i class="fa fa-mail-reply btn-back"></i>
+    </div>
+
+    <div class="list-body">
+        <div class="list-content">
+            <div class="list-item" id="enterpriseChannel">
+                <div class="list-item-img"><img src="../static/Public/images/enterprise.png" /></div>
+                <div class="list-item-text">企业通表单摸板</div>
+            </div>
+            <div class="list-item" id="smartCitizenSolution">
+                <div class="list-item-img"><img src="../static/Public/images/citizen.png" /></div>
+                <div class="list-item-text">居民通表单摸板</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="list-footer">
+		<div class="copyright">Copyright © 2017 云坤信息 All Rights Reserved</div>
+		<div class="record">ICP备案：XXXXX</div>
+	</div>
+
+    <script src="../static/Public/externals/jquery-3.2.1.min.js"></script>
+    <script>
+        $(function () {
+			
+			$(".btn-back").on("click",function(){
+				window.location.href = "index.html";
+			})
+          
+			$("#enterpriseChannel").on("click",function(){
+				 window.location.href = "formbuildtype.html?formType=0";
+			})
+           
+        	$("#smartCitizenSolution").on("click",function(){
+        		 window.location.href = "formbuildtype.html?formType=1";
+        	})
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>预览</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="../static/Public/externals/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../static/Public/externals/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../static/Public/css/preview.css" />
+    <link rel="stylesheet" href="../static/Public/css/edit.css"/>
+    <link rel="stylesheet" href="../static/Public/externals/jquery-datepicker/css/jquery-ui.css" />
+    <link rel="stylesheet" href="../static/Public/externals/jquery-datepicker/css/jquery-ui.theme.css" />
+</head>
+<body>
+    <div class="back-edit" id="backEdit"><i id="icon-back-edit" class="fa fa-sign-out"></i><div class="back-tag"><em></em>返回编辑</div></div>
+    <div class="publish-form" id="publishForm"><i id="icon-publish-form" class="fa fa-qrcode"></i><div class="publish-tag"><em></em>发布表单</div></div>
+    <div class="container"></div>
+
+    <script src="../static/Public/externals/jquery-3.2.1.min.js"></script>
+    <script src="../static/Public/externals/bootstrap/js/bootstrap-3.3.7.min.js"></script>
+    <script src="../static/Public/externals/jquery-datepicker/js/jquery-ui.min.js"></script>
+    <script src="../static/Public/externals/jquery-datepicker/locales/dateinput-ch-ZN.js"></script>
+    <script src="../static/Public/externals/jquery-distpicker/js/distpicker.data.js"></script>
+    <script src="../static/Public/externals/jquery-distpicker/js/distpicker.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+       var containerHtml = sessionStorage.getItem("newEditHtml");
+         $(".container").html(containerHtml);
+
+        $("#backEdit").on("mouseover",function(){
+            $(".back-tag").css("display","block");
+        });
+
+        $("#backEdit").on("mouseout",function(){
+            $(".back-tag").css("display","none");
+        });
+        $("#publishForm").on("mouseover",function(){
+            $(".publish-tag").css("display","block");
+        });
+
+        $("#publishForm").on("mouseout",function(){
+            $(".publish-tag").css("display","none");
+        });
+        //返回编辑
+        $("#backEdit").on("mousedown",function(){
+            $(".back-edit").css("background","#009aff");
+            $(".back-edit").css("color","#fff");
+        });
+        $("#backEdit").on("mouseup",function(){
+            $(".back-edit").css("background","#fff");
+            $(".back-edit").css("color","#222");
+
+            sessionStorage.setItem("currentOption","backEdit");
+            window.location.href = "formbuild.html";
+        });
+        //发布表单
+        $("#publishForm").on("mousedown",function(){
+            $(".publish-form").css("background","#009aff");
+            $(".publish-form").css("color","#fff");
+        });
+        $("#publishForm").on("mouseup",function(){
+            $(".publish-form").css("background","#fff");
+            $(".publish-form").css("color","#222");
+
+            var editHtml =  sessionStorage.getItem("oldEditHtml");
+            var formType = sessionStorage.getItem("formType");
+            var formName = sessionStorage.getItem("formName");
+            var formDescribe = sessionStorage.getItem("formDescribe");
+            var formId = sessionStorage.getItem("formId");
+            var html=$(".container").html();
+            var objArray=[];
+            var formItems = new Array();
+            var enhanceFields=[];//加强字段整理字段
+            $("#target").find(".component").each(function(index,el){
+                formItems.push($(this).attr("id"));
+                var type=$(this).attr("data-type");
+                //跳过标题控件
+				if(type == "groupTitle")
+				{
+					return true;
+				}
+                var callbackobj=SAVE.plugins[type](el);
+                var obj=new Object();
+                obj[callbackobj.fieldId]={
+                    fieldName:callbackobj.fieldName,
+                    type:type
+                };
+                objArray.push(obj);
+                //获取加强字段
+				if(type == "fieldtext")
+				{
+					enhanceFields.push({id:$(this).attr("id"),fieldId:$(this).attr("field-dataid")});
+				}
+            });
+            var param;
+            if(formId != null && formId != "null" && formId != ""){
+                param = {
+                    html:html,
+                    formEditContent:editHtml,
+                    formMeta:JSON.stringify(objArray),
+                    formName:formName,
+                    formType:formType,
+                    formItems:formItems.toString(),
+                    formDescribe:formDescribe,
+                    formId:formId,
+                    enhanceFields:JSON.stringify(enhanceFields)
+                }
+            }else{
+                param = {
+                    html:html,
+                    formEditContent:editHtml,
+                    formMeta:JSON.stringify(objArray),
+                    formName:formName,
+                    formType:formType,
+                    formItems:formItems.toString(),
+                    formDescribe:formDescribe,
+                    enhanceFields:JSON.stringify(enhanceFields)
+                }
+            }
+            $.ajax({
+                type:"post",
+                url:"../form/design/publish",
+                contentType: "application/x-www-form-urlencoded",
+                dataType:"json",
+                async:true,
+                data:param,
+                success:function(data){
+                    if(data.success = true && data.returnValue != null && data.returnValue != ""){
+                        sessionStorage.setItem("currentPublishFormId",data.returnValue);
+                        sessionStorage.setItem("oldEditHtml","");
+                        sessionStorage.setItem("newEditHtml","");
+                        sessionStorage.setItem("formType","");
+                        sessionStorage.setItem("formName","");
+                        sessionStorage.setItem("formDescribe","");
+                        sessionStorage.setItem("formId","");
+                        window.location.href = "publishsuccess.html";
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(XMLHttpRequest.status + ":" + XMLHttpRequest.statusText);
+                }
+            });
+        });
+    });
+</script>
+<script src="../static/Public/js/preview.js"></script>
+<script src="../static/Public/js/savemodel.js"></script>
+<script src="../static/Public/js/componentinit.js"></script>
+</body>
+</html>

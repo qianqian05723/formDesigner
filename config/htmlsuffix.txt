@@ -1,0 +1,39 @@
+</div>
+<!-- 消息提示验证提示 -->
+		<div class="modal fade" id="valiteModal" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><img src="public/images/close.png" /></button>
+						<h4 class="modal-title">提示信息</h4>
+					</div>
+					<div class="modal-body"><img class="icon_warning" src="public/images/icon_warning.png"><span class="txt_tip"></span></div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--操作成功失败-->
+		<div class="result_tip" id="op_tip">
+			<div class="inner_content">
+				<!-- <p class="success_tip"><i class="icon_success"></i>操作成功</p> -->
+				<!--<p class="fail_tip"><i class="icon_fail"></i>操作失败</p> -->
+			</div>
+		</div>
+	<!-- 加载 -->
+	<div class='mask'><div class='loadbox'><span class='loadtxt'><i class='fa fa-spinner fa-pulse'></i>数据加载中，请稍等……</span></div></div> 	
+	<script src="public/externals/jquery-3.2.1.min.js"></script>
+	<script src="public/externals/bootstrap/js/bootstrap-3.3.7.min.js"></script>
+	<script src="public/externals/jquery-datepicker/js/jquery-ui.min.js"></script>
+	<script src="public/externals/jquery-datepicker/locales/dateinput-ch-ZN.js"></script>
+	<script src="public/externals/jquery-distpicker/js/distpicker.data.js"></script>
+	<script src="public/externals/jquery-distpicker/js/distpicker.js"></script>
+	<script src="public/js/formTemplates.js"></script>
+	<script src="public/js/getcomponentval.js"></script>
+	<script src="public/js/componentinit.js"></script>
+	<script src="public/js/getcomponentval.js"></script>
+	<script src="public/externals/md5.js"></script>
+	<script src="public/js/setcomponentval.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <link rel="stylesheet" type="text/css" href="public/externals/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="public/externals/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="public/externals/jquery-datepicker/css/jquery-ui.css" />
+    <link rel="stylesheet" href="public/externals/jquery-datepicker/css/jquery-ui.theme.css" />
+    <link rel="stylesheet" href="public/css/form.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/edit.css"/>
+    <link rel="stylesheet" type="text/css" href="public/css/text.css"/>
+</head>
+<body>
+<div class='header'>
+
+</div>
+<div class='container'>
+
+					<div class="form_build">
+						<div class="title"></div>
+						<div class="form-title" id="formTitleDisplay" style="display: block;">用户调查表</div>
+						<div class="form-describe" id="formDescribeDisplay" style="display: block;">Hi 亲爱的用户：
+为了更好的优化我们系统的使用体验，我们希望能够听到更多来自使用用户的声音。
+请花上一点点时间，和我们聊一下吧！</div>
+						<div class="clearfix">
+							<div id="build" class="build-line">
+								<form id="target" enctype="multipart/form-data" class="">
+									<!--<fieldset id="targetPosition">
+									</fieldset>-->
+								<div data-type="date" draggable="false" id="componentItem_1499846069000" class=""><div class="component" data-type="date" id="component_1499846069000" data-componentname="填表时间" data-datedefaultvalue="" data-datestartvalue="" data-dateendvalue="" data-required="true" data-errorcontent="" data-width="50%" data-newrow="false" style="width: 50%;">
+  <div>
+    
+    <label class="control-label" id="componentName_1499846069000" data-aftercontent="">填表时间</label><label class="required_red" style="display: inline-block;">*</label>
+  </div>
+  <div class="componentControl">
+    <i id="icon-date" class="fa fa-calendar"></i>
+    <input class="remove-disabled hasDatepicker" id="componentDate_1499846069000" name="componentDate_1499846069000" type="text" data-type="datePicker_1499846069000" placeholder="" value="" style="border-left-width: 25px; width: 275px;">
+  </div>
+  
+</div></div><div data-type="text" draggable="false" id="componentItem_1499846099000" class=""><div class="component" data-type="text" id="component_1499846099000" data-componentname="姓名" data-value="" data-required="true" data-minlength="2" data-maxlength="4" data-errorcontent="" data-width="50%" data-newrow="false" style="width: 50%;">
+  <div>
+    
+    <label class="control-label" id="componentName_1499846099000" data-aftercontent="（请填写2-4个字）">姓名</label><label class="required_red" style="display: inline-block;">*</label>
+  </div>
+  <div class="componentControl">
+    <input class="remove-disabled" id="componentIndex_1499846099000" name="componentIndex_1499846099000" type="text" placeholder="" value="" style="width: 275px;">
+  </div>
+  
+</div></div><div data-type="radio" draggable="false" id="componentItem_1499846137000" class=""><div class="component radio_template" data-type="radio" id="component_1499846137000" data-required="false">
+  <label class="control-label component_title">性别</label>
+    <div class="radio_list ml25">
+	  	<div class="radio horizontal_array">
+			 <label>
+			    <input class="remove-disabled" type="radio" name="component_1499846137000" value="男" checked="checked">
+			   	<span>男</span>
+			 </label>
+			</div>
+			<div class="radio horizontal_array">
+			 <label>
+			    <input class="remove-disabled" type="radio" name="component_1499846137000" value="女">
+			   	<span>女</span>
+			 </label>
+			</div>
+			
+	</div>
+  
+</div>
+</div><div data-type="number" draggable="false" id="componentItem_1499846127000" class=""><div class="component" data-type="number" id="component_1499846127000" data-componentname="年龄" data-value="" data-required="false" data-minlength="" data-maxlength="" data-errorcontent="" data-width="" data-newrow="false">
+  <div>
+    
+    <label class="control-label" id="componentName_1499846127000" data-aftercontent="">年龄</label><label class="required_red" style="display: none">*</label>
+  </div>
+  <div class="componentControl">
+    <i id="icon-number" class="fa fa-sort-numeric-asc"></i>
+    <input class="remove-disabled" style="border-left-width: 25px" id="componentIndex_1499846127000" name="componentIndex_1499846127000" type="number" placeholder="" value="">
+  </div>
+  
+</div></div><div data-type="mobilePhone" draggable="false" id="componentItem_1499846169000" class=""><div class="component" data-type="mobilePhone" id="component_1499846169000" data-componentname="手机" data-value="" data-required="false" data-errorcontent="" data-width="" data-newrow="false">
+  <div>
+    
+    <label class="control-label" id="componentName_1499846169000" data-aftercontent="">手机</label><label class="required_red" style="display: none">*</label>
+  </div>
+  <div class="componentControl">
+    <i id="icon-phone" class="fa fa-mobile"></i>
+    <input class="remove-disabled" style="border-left-width: 25px" id="componentIndex_1499846169000" name="componentIndex_1499846169000" type="number" placeholder="" value="">
+  </div>
+  
+</div></div><div data-type="email" draggable="false" id="componentItem_1499846166000"><div class="component" data-type="email" id="component_1499846166000" data-componentname="邮箱" data-required="false" data-errorcontent="" data-width="" data-newrow="false">
+  <div>
+    
+    <label class="control-label" id="componentName_1499846166000" data-aftercontent="">邮箱</label><label class="required_red" style="display: none">*</label>
+  </div>
+  <div class="componentControl">
+    <i id="icon-number" class="fa fa-envelope"></i>
+    <input class="remove-disabled" style="border-left-width: 25px" id="componentIndex_1499846166000" name="componentIndex_1499846166000" type="text" placeholder="" value="">
+  </div>
+  
+</div></div><div data-type="textarea" draggable="false" id="componentItem_1499846221000" class=""><div class="component" data-type="textarea" id="component_1499846221000" data-componentname="第一次使用时觉得不爽的地方？" data-value="" data-required="false" data-minlength="" data-maxlength="" data-errorcontent="" data-width="" data-newrow="false">
+  <div>
+    
+    <label class="control-label" id="componentName_1499846221000" data-aftercontent="">第一次使用时觉得不爽的地方？</label><label class="required_red" style="display: none">*</label>
+  </div>
+  <div class="componentControl">
+    <textarea class="remove-disabled" id="componentIndex_1499846221000" name="componentIndex_1499846221000" placeholder="" value=""></textarea>
+  </div>
+  
+</div></div><div data-type="textarea" draggable="false" id="componentItem_1499846178000" class=""><div class="component" data-type="textarea" id="component_1499846178000" data-componentname="更多意见/建议" data-value="" data-required="false" data-minlength="" data-maxlength="" data-errorcontent="" data-width="" data-newrow="false">
+  <div>
+    
+    <label class="control-label" id="componentName_1499846178000" data-aftercontent="">更多意见/建议</label><label class="required_red" style="display: none">*</label>
+  </div>
+  <div class="componentControl">
+    <textarea class="remove-disabled" id="componentIndex_1499846178000" name="componentIndex_1499846178000" placeholder="" value=""></textarea>
+  </div>
+  
+</div></div><div data-type="number" draggable="false" id="componentItem_1499846273000" class=""><div class="component" data-type="number" id="component_1499846273000" data-componentname="联系QQ（以使工程师联系）" data-value="" data-required="false" data-minlength="" data-maxlength="" data-errorcontent="" data-width="" data-newrow="false">
+  <div>
+    
+    <label class="control-label" id="componentName_1499846273000" data-aftercontent="">联系QQ（以使工程师联系）</label><label class="required_red" style="display: none">*</label>
+  </div>
+  <div class="componentControl">
+    <i id="icon-number" class="fa fa-sort-numeric-asc"></i>
+    <input class="remove-disabled" style="border-left-width: 25px" id="componentIndex_1499846273000" name="componentIndex_1499846273000" type="number" placeholder="" value="">
+  </div>
+  
+</div></div></form>
+							</div>
+						</div>
+						<div class="button-group">
+							<div class="button_component" data-type="btnSubmit" data-backgroundcolor="" data-padding="" data-shadow="false" data-fontfamily="" data-fontsize="" data-fontweight="" data-fontcolor="" data-bordercolor="" data-borderwidth="" data-layout="" style="border: none; background: none;">
+								<input type="button" class="form_submit_btn" id="input_btn_submit" value="提交">
+							</div>
+							<div class="temporary_component" data-type="btnTemporary" data-backgroundcolor="" data-padding="" data-shadow="false" data-fontfamily="" data-fontsize="" data-fontweight="" data-fontcolor="" data-bordercolor="" data-borderwidth="" style="border: none; background: none;">
+								<input type="button" class="form_temporary_btn" id="input_btn_temporary" value="暂存">
+							</div>
+						</div>
+					</div>
+				</div>
+<!-- 消息提示验证提示 -->
+		<div class="modal fade" id="valiteModal" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><img src="public/images/close.png" /></button>
+						<h4 class="modal-title">提示信息</h4>
+					</div>
+					<div class="modal-body"><img class="icon_warning" src="public/images/icon_warning.png"><span class="txt_tip"></span></div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--操作成功失败-->
+		<div class="result_tip" id="op_tip">
+			<div class="inner_content">
+				<!-- <p class="success_tip"><i class="icon_success"></i>操作成功</p> -->
+				<!--<p class="fail_tip"><i class="icon_fail"></i>操作失败</p> -->
+			</div>
+		</div>
+	<!-- 加载 -->
+	<div class='mask'><div class='loadbox'><span class='loadtxt'><i class='fa fa-spinner fa-pulse'></i>数据加载中，请稍等……</span></div></div> 	
+	<script src="public/externals/jquery-3.2.1.min.js"></script>
+	<script src="public/externals/bootstrap/js/bootstrap-3.3.7.min.js"></script>
+	<script src="public/externals/jquery-datepicker/js/jquery-ui.min.js"></script>
+	<script src="public/externals/jquery-datepicker/locales/dateinput-ch-ZN.js"></script>
+	<script src="public/externals/jquery-distpicker/js/distpicker.data.js"></script>
+	<script src="public/externals/jquery-distpicker/js/distpicker.js"></script>
+	<script src="public/js/formTemplates.js"></script>
+	<script src="public/js/getcomponentval.js"></script>
+	<script src="public/js/componentinit.js"></script>
+	<script src="public/js/getcomponentval.js"></script>
+	<script src="public/externals/md5.js"></script>
+	<script src="public/js/setcomponentval.js"></script>
+</body>
+</html>

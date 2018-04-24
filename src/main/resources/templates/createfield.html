@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>加强字段管理</title>
+    <link rel="stylesheet" href="../static/Public/externals/bootstrap/css/bootstrap.min.css"   />
+    <link rel="stylesheet" href="../static/Public/externals/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../static/Public/css/common.css"/>
+    <link rel="stylesheet" href="../static/Public/css/creatfield.css"/>
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="content_box">
+        <div class="top_title">
+            <span class="top_name">加强字段管理</span>
+            <a class="pull-right a_back"  href="index.html">返回</a>
+        </div>
+        <div class="clearfix top_form">
+            <a  class="btn btn-primary btn-100 fleft"  href="javascript:;" data-toggle="modal" data-target="#createaccount">
+              创建加强字段
+            </a>
+             <div class="form-group select_platform fleft">
+				 <label>平台类型：</label>
+				 <select class="form-control select_formtype">
+				 	<option value='-1'>全部</option>
+					<option value='1'>居民通</option>
+					<option value='0'>企业通</option>
+				 </select>
+			</div>
+            <div class="pull-right">
+                <div class="input-group">
+                    <input type="text" class="form-control search_val" placeholder="请输入加强字段名称"/>
+                    <span class="input-group-btn">
+						<button class="btn btn-default search_btn" type="button">查询</button>
+					  </span>
+                </div>
+               
+            </div>
+        </div>
+        <!--列表-->
+        <div class="div_list">
+            <div class="div_border">
+                <div class="list_header_box">
+                    <div class='col-xs-3 list_header'>加强字段名称</div>
+                    <div class='col-xs-1 list_header'>所属平台</div>
+                    <div class='col-xs-2 list_header'>接口URL</div>
+                    <div class='col-xs-1 list_header'>模型ID</div>
+                    <div class='col-xs-1 list_header'>接口字段</div>
+                    <div class='col-xs-1 list_header'>是否订阅</div>
+                    <div class='col-xs-3 list_header'>操作</div>
+                </div>
+                <div class='list_content'>
+	                <!--<div class='item_box'>
+	                    <div class='col-xs-3 color_508bea'>企业名称</div>
+	                    <div class='col-xs-1 color_666'>企业通</div>
+	                    <div class='col-xs-2 color_666'>获取企业通用户信息</div>
+	                    <div class='col-xs-1 color_666'>333</div>
+	                    <div class='col-xs-1 color_666'>phone</div>
+	                    <div class='col-xs-1 color_666'>是</div>
+	                    <div class='col-xs-3 color_666'>
+	                        <a>修改</a>
+	                        <span class="a_line">|</span>
+	                        <a >删除</a>
+	                    </div>
+	                </div>-->
+                </div>
+                <!--没有相关数据 -->
+                <div class="nodata">
+                    <img class="icon_info" src="../static/Public/images/icon_info.png" />没有相关数据
+                </div>
+            </div>
+        </div>
+        <nav class="page_num">
+			<span class="count"> 共有<span class='allcount'></span>条，每页显示：10条</span>
+			<div class="sofupage">
+				<div id="sofupage">
+	                <!--<a class="first disable" href="javascript:void(0)">首页</a>
+	                <a href="javascript:void(0)" class="cur">1</a>
+	                <a href="javascript:void(0)">2</a>
+	                <a href="javascript:void(0)">3</a>
+	                <a class="last" href="javascript:void(0)">末页</a>-->
+            	</div>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<!--modal-->
+<!--创建加强字段-->
+<div class="modal fade" id="createaccount" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><img src="../static/Public/images/close.png" /></button>
+                <h4 class="modal-title">创建加强字段</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label  class="col-xs-4 control-label"><span class="red">*</span>加强字段名称</label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control w_220 add_fixationFieldName" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-xs-4 control-label"><span class="red">*</span>所属平台</label>
+                        <div class="col-xs-6">
+                            <select class="form-control add_formtype" value="1">
+                               <option value='1'>居民通</option>
+								<option value='0'>企业通</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-xs-4 control-label"><span class="red">*</span>接口URL</label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control w_220 add_apiUrl" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-xs-4 control-label"><span class="red">*</span>接口模型ID</label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control w_220 add_apiModelId" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-xs-4 control-label"><span class="red">*</span>接口字段</label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control w_220 add_apiField" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-xs-4 control-label"><span class="red">*</span>是否需要订阅</label>
+                        <div class="col-xs-6">
+                            <select class="form-control add_subscribe" value='0'>
+                            	<option value="0">否</option>
+                                <option value='1'>是</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-primary add_filed_btn"  value="确定" />
+                <input type="button" class="btn btn-default" data-dismiss="modal" value="取消" />
+            </div>
+        </div>
+    </div>
+</div>
+<!--修改加强字段-->
+<div class="modal fade" id="edit_field" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><img src="../static/Public/images/close.png" /></button>
+                <h4 class="modal-title">修改加强字段</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label  class="col-xs-4 control-label"><span class="red">*</span>加强字段名称</label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control w_220 edit_fixationFieldName" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-xs-4 control-label"><span class="red">*</span>所属平台</label>
+                        <div class="col-xs-6">
+                            <select class="form-control edit_formtype" value="1">
+                               <option value='1'>居民通</option>
+								<option value='0'>企业通</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-xs-4 control-label"><span class="red">*</span>接口URL</label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control w_220 edit_apiUrl" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-xs-4 control-label"><span class="red">*</span>接口模型ID</label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control w_220 edit_apiModelId" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-xs-4 control-label"><span class="red">*</span>接口字段</label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control w_220 edit_apiField" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-xs-4 control-label"><span class="red">*</span>是否需要订阅</label>
+                        <div class="col-xs-6">
+                            <select class="form-control edit_subscribe" value='0'>
+                            	<option value="0">否</option>
+                                <option value='1'>是</option>
+                            </select>
+                        </div>
+                    </div>
+                    <input type="hidden" class='edit_id' value=''/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-primary edit_filed_btn"  value="确定" />
+                <input type="button" class="btn btn-default" data-dismiss="modal" value="取消" />
+            </div>
+        </div>
+    </div>
+</div>
+<!--删除提示-->
+<div class="modal fade" id="dialog_delete" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><img src="../static/Public/images/close.png" /></button>
+        <h4 class="modal-title">操作提示</h4>
+      </div>
+      <div class="modal-body">
+		  <img class="icon_warning" src="../static/Public/images/icon_warning.png"><span class="txt_tip">确定要删除该加强字段吗？</span>
+      </div>
+      <div class="modal-footer">
+      	<button type="button" class="btn btn-primary dialog_delete_btn" data-id=''>确定</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 消息提示验证提示 -->
+<div class="modal fade" id="valiteModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><img src="../static/Public/images/close.png" /></button>
+        <h4 class="modal-title">提示信息</h4>
+      </div>
+		<div class="modal-body"><img class="icon_warning" src="../static/Public/images/icon_warning.png"><span class="txt_tip"></span></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--操作成功失败-->
+<div class="result_tip" id="op_tip">
+	<div class="inner_content">
+		<!-- <p class="success_tip"><i class="icon_success"></i>操作成功</p> -->
+		<!--<p class="fail_tip"><i class="icon_fail"></i>操作失败</p>-->
+	</div>
+</div>
+<!-- 加载 -->
+<div class='mask'><div class='loadbox'><span class='loadtxt'><i class='fa fa-spinner fa-pulse'></i>数据加载中，请稍等……</span></div></div> 
+<script type="text/javascript"  src="../static/Public/externals/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../static/Public/externals/bootstrap/js/bootstrap-3.3.7.min.js"></script>
+<script type="text/javascript" src='../static/Public/js/createfield.js'></script>
+<script src="../static/Public/externals/jquery-sofupage.js"></script>
+</body>
+</html>

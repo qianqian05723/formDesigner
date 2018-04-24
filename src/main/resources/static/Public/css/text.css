@@ -1,0 +1,107 @@
+.icons{
+    position: absolute;
+    left: 0;
+    top: 5px;
+    text-align: center;
+}
+.icon-grid{
+    height: 4px;
+    border: 1px solid #EB8D1F;
+    display: inline-block;
+    margin: 6px 0;
+}
+.icon-grid-1{
+    width: 18px;
+    border-left-width: 6px;
+}
+.icon-grid-2{
+    width: 12px;
+    border-left-width: 12px;
+}
+.icon-grid-3{
+    width: 6px;
+    border-left-width: 18px;
+}
+.control-label:after{
+    content: attr(data-afterContent);
+    font-weight: bold;
+    color: #222;
+}
+.control-label{
+    display: inline-block;
+    margin-left: 25px;
+    text-align: center;
+}
+.componentControl{
+    position: relative;
+    margin-left: 25px;
+}
+.required_red{
+    color: red;
+}
+/*****************textarea***************************/
+.componentControl > textarea{
+    resize: none;
+    width: 96%;
+    height: 50px;
+}
+/*****************number***************************/
+#icon-number{
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    font-size: 14px;
+}
+/*****************time***************************/
+.select-minute{
+    margin-left: 10px;
+}
+.select-second{
+    margin-left: 10px;
+}
+/*****************date***************************/
+#icon-date{
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    font-size: 14px;
+}
+/*****************mobilePhone***************************/
+#icon-phone{
+    position: absolute;
+    top: 3px;
+    left: 7px;
+    font-size: 28px;
+}
+/*****************telePhone***************************/
+#icon-telephone{
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    font-size: 20px;
+}
+/*****************address***************************/
+.addressInput{
+    margin-left: 25px;
+    margin-top: 5px;
+}
+.addressInput > input{
+    width: 79%;
+}
+/*****************groupTitle***************************/
+.groupTitle{
+    height: 40px;
+    line-height:40px;
+    background: #6A6A6A;
+    color: #fff;
+    font-weight: bold;
+    opacity: 0.3;
+    border-top:3px solid #222;
+    padding-left: 25px;
+}
+/******************提交按钮*****************************/
+.btnShadow{
+    box-shadow:6px 6px 5px #888888;
+    -moz-box-shadow:6px 6px 5px #888888;
+    -webkit-box-shadow:6px 6px 5px #888888;
+}

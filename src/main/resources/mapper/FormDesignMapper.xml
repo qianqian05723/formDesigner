@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 指定工作空间，要与接口名相同，源代码没有去看，猜测应该是通过“这里的namespace.下边的方法id”来定位方法的 -->
+<mapper namespace="com.wingconn.govForm.mapper.FormDesignMapper">
+    <!-- 表单保存时，第一次是插入，第二次是更新 -->
+    <insert id="saveOne" parameterType="com.wingconn.govForm.domain.FormDesignDO">
+      INSERT INTO t_form_design
+        (form_id, form_name, form_meta, form_type, creater_id, form_edit_content, form_describe)
+      VALUES
+        (#{formId}, #{formName}, #{formMeta}, #{formType}, #{createrId}, #{formEditContent}, #{formDescribe});
+    </insert>
+
+    <insert id="saveOnePublish" parameterType="com.wingconn.govForm.domain.FormDesignDO">
+        INSERT INTO t_form_design
+        (form_id, form_name, form_meta, form_type, creater_id, form_edit_content, form_describe, status, form_publish_content)
+        VALUES
+        (#{formId}, #{formName}, #{formMeta}, #{formType}, #{createrId}, #{formEditContent}, #{formDescribe},'1', #{formPublishContent});
+    </insert>
+
+    <!-- 更新 -->
+    <update id="updateOne" parameterType="com.wingconn.govForm.domain.FormDesignDO">
+      UPDATE t_form_design <include refid="updateSql" /> WHERE form_id=#{formId};
+    </update>
+
+    <!-- 更新 -->
+    <update id="updateOnePublish" parameterType="com.wingconn.govForm.domain.FormDesignDO" >
+        UPDATE t_form_design <include refid="updatePublishSql" /> WHERE form_id=#{formId};
+    </update>
+
+    <!-- 更新 set 语句 -->
+    <sql id="updateSql">
+        <trim prefix="set" suffixOverrides=",">
+            form_id=#{formId},
+            <if test="null != formName and '' != formName">form_name=#{formName},</if>
+            <if test="null != formMeta and '' != formMeta">form_meta=#{formMeta},</if>
+            <if test="null != formType and '' != formType">form_type=#{formType},</if>
+            <if test="null != modifierId and '' != modifierId">modifier_id=#{modifierId},</if>
+            <if test="null != modifierName and '' != modifierName">modifier_name=#{modifierName},</if>
+            <if test="null != formEditContent  and '' != formEditContent">form_edit_content=#{formEditContent},</if>
+            <if test="null != formDescribe  and '' != formDescribe">form_describe=#{formDescribe},</if>
+        </trim>
+    </sql>
+
+    <!-- 更新 set 语句 -->
+    <sql id="updatePublishSql">
+        <trim prefix="set" suffixOverrides=",">
+            status = '1',
+            <if test="null != formName and '' != formName">form_name=#{formName},</if>
+            <if test="null != formMeta and '' != formMeta">form_meta=#{formMeta},</if>
+            <if test="null != formType and '' != formType">form_type=#{formType},</if>
+            <if test="null != modifierId and '' != modifierId">modifier_id=#{modifierId},</if>
+            <if test="null != modifierName and '' != modifierName">modifier_name=#{modifierName},</if>
+            <if test="null != formEditContent  and '' != formEditContent">form_edit_content=#{formEditContent},</if>
+            <if test="null != formDescribe  and '' != formDescribe">form_describe=#{formDescribe},</if>
+            <if test="null != formPublishContent  and '' != formPublishContent">form_publish_content=#{formPublishContent},</if>
+        </trim>
+    </sql>
+
+    <!-- 判断指定的 formId 是否已经发布 -->
+    <select id="isPublished" resultType="int">
+      SELECT count(id) FROM t_form_design WHERE form_id=#{formId} AND status='1';
+    </select>
+
+    <!-- 判断是否存在form表单 -->
+    <select id="exist" resultType="int">
+        SELECT COUNT(id) FROM t_form_design WHERE form_id=#{formId};
+    </select>
+
+    <!-- 获得指定的 form 表单 -->
+    <select id="findByFormId" resultMap="formDesignMap">
+        SELECT * FROM t_form_design WHERE form_id=#{formId};
+    </select>
+
+    <!-- 发布表单 -->
+    <update id="publish">
+        UPDATE t_form_design SET status='1' WHERE form_id=#{form_id};
+    </update>
+
+    <!-- 设为模板 -->
+    <update id="setAsTemplate">
+        UPDATE t_form_design SET is_template='1' WHERE form_id=#{form_id};
+    </update>
+
+    <!-- 获取表中所有的记录 -->
+    <select id="count" resultType="int">
+        SELECT COUNT(id) FROM t_form_design WHERE form_id NOT IN (select form_id from t_form_update_mark where update_mark='2')
+            <if test="null != formName and '' != formName">AND form_name LIKE concat('%', #{formName}, '%')</if>;
+    </select>
+
+    <select id="page" resultMap="formDesignMap">
+        SELECT * FROM t_form_design WHERE form_id NOT IN (select form_id from t_form_update_mark where update_mark='2')
+            <if test="null != formName and '' != formName">AND form_name LIKE concat('%', #{formName}, '%')</if>
+        ORDER BY id DESC limit #{limit} offset #{offset};
+    </select>
+
+    <!-- 获取编辑态表单片段内容 -->
+    <select id="getEditContentByFormId" resultMap="formDesignMap">
+        SELECT * FROM t_form_design WHERE form_id=#{formId};
+    </select>
+
+    <!-- 获取发布态表单片段内容 -->
+    <select id="getPublishedContentByFormId" resultType="string">
+        SELECT form_publish_content FROM t_form_design WHERE form_id=#{formId};
+    </select>
+
+    <delete id="removeByFormId">
+        DELETE FROM t_form_design WHERE form_id=#{formId};
+    </delete>
+
+    <!-- map -->
+    <resultMap id="formDesignMap" type="com.wingconn.govForm.domain.FormDesignDO">
+        <id column="id" property="id" />
+        <result column="form_id" property="formId" />
+        <result column="form_name" property="formName" />
+        <result column="form_meta" property="formMeta" />
+        <result column="form_type" property="formType" />
+        <result column="status" property="status" />
+        <result column="is_template" property="template" />
+        <result column="creater_id" property="createrId" />
+        <result column="creater_name" property="createrName" />
+        <result column="create_date" property="createDate" />
+        <result column="modifier_id" property="modifierId" />
+        <result column="modifier_name" property="modifierName" />
+        <result column="update_date" property="updateDate" />
+        <result column="form_edit_content" property="formEditContent" />
+        <result column="form_describe" property="formDescribe" />
+        <result column="form_publish_content" property="formPublishContent" />
+    </resultMap>
+</mapper>

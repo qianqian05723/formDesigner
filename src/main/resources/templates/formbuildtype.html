@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>政务表单简易填报系统</title>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../static/Public/externals/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../static/Public/css/formbuildtype.css">
+</head>
+<body>
+    <div class="list-head">
+        <label class="title">选择表单创建类型</label>
+        <i class="fa fa-mail-reply btn-back"></i>
+    </div>
+
+    <div class="list-body">
+        <div class="list-content">
+            <div class="list-item item-bg" id="blankForm">
+                <div class="list-item-icon"><i class="fa fa-file-o"></i></div>
+                <div class="list-item-text">创建空白表单</div>
+            </div>
+            <div class="list-item item-bg" id="excelForm">
+                <div class="list-item-icon"><i class="fa fa-file-excel-o"></i></div>
+                <div class="list-item-text">从Excel创建表单</div>
+            </div>
+            <div class="list-item item-template-bg" id="templateForm">
+                <div class="list-item-icon"><i class="fa fa-file-text-o"></i></div>
+                <div class="list-item-text">选择表单模板</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="list-footer">
+		<div class="copyright">Copyright © 2017 云坤信息 All Rights Reserved</div>
+		<div class="record">ICP备案：XXXXX</div>
+	</div>
+
+    <script src="../static/Public/externals/jquery-3.2.1.min.js"></script>
+    <script>
+    	
+    	var FORMTYPE=getUrlParam("formType");
+        $(function () {
+           
+           if(FORMTYPE == "1")
+           {
+       			$(".title").text("选择表单创建类型(居民通)");
+           }else if(FORMTYPE == "0")
+           {
+           	$(".title").text("选择表单创建类型(企业通)")
+           }
+           
+			$(".btn-back").on("click",function(){
+				window.location.href = "platformresources.html";
+			})
+			
+            $("#blankForm").on("click",function () {
+                if(FORMTYPE!= null && FORMTYPE != ""){
+                    sessionStorage.setItem("formType",FORMTYPE);
+                    window.location.href = "formbuild.html";
+                }else{
+                    window.location.href = "index.html";
+                }
+            });
+			
+            $("#excelForm").on("click",function () {
+                
+                alert("这是Excel表单");
+            });
+
+            $("#templateForm").on("click",function () {
+                
+                alert("这是表单模板");
+            });
+        });
+        
+        //获取url中的参数
+        function getUrlParam(name) {
+            //构造一个含有目标参数的正则表达式对象
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            //匹配目标参数
+            var r = window.location.search.substr(1).match(reg);
+            //返回参数值
+            if (r != null){
+                return decodeURIComponent(r[2]);
+            } else{
+                return null
+            }
+        }
+    </script>
+</body>
+</html>

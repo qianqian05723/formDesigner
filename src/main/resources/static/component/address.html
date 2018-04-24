@@ -1,0 +1,18 @@
+<div class="component"  data-type="address" id="component_{{:textInputNum}}" data-componentName="地址" data-provinceValue="江苏省" data-cityValue="苏州市" data-districtValue="" data-detailValue="" data-required=false data-errorContent="" data-width="" data-newRow=false>
+  <div>
+    <div class="icons"><i id="icon-width" class=""></i></div>
+    <label class="control-label" id="componentName_{{:textInputNum}}" data-afterContent="">地址</label><label class="required_red" style="display: none">*</label>
+  </div>
+  <div id="distpicker_{{:textInputNum}}">
+    <div class="componentControl">
+        <select class="remove-disabled" id="componentProvince_{{:textInputNum}}" value="" style="width: 160px" disabled="disabled"></select>
+        <select class="remove-disabled" id="componentCity_{{:textInputNum}}" value="" style="width: 160px;margin-left: 5px" disabled="disabled"></select>
+        <select class="remove-disabled" id="componentDistrict_{{:textInputNum}}" value="" style="width: 160px;margin-left: 5px" disabled="disabled"></select>
+    </div>
+    <div class="addressInput">
+        <input class="remove-disabled" type="text" id="componentDetail_{{:textInputNum}}" value="" placeholder="详细地址" value="" disabled="disabled"/>
+    </div>
+  </div>
+
+  <div class="delete_btn" data-id="textComponent_{{:textInputNum}}" data-toggle="tooltip" data-placement="bottom" title="删除"><i class="fa fa-trash"></i></div>
+</div>

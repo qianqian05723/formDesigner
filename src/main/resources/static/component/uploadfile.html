@@ -1,0 +1,16 @@
+<div class="component uploadfile_template"  data-type="uploadfile"  id="component_{{:textInputNum}}" data-required="false">
+	<label class="control-label component_title" >附件上传</label>
+	<div class='uploadfile_box ml25'>
+		<div class='fiel_box'>
+			<input type="file"  class="remove-disabled" id="componentuploadfileinput_{{:textInputNum}}" data-src='' disabled/>
+		</div>
+		<i class="fa fa-upload" aria-hidden="true"></i>
+		<p>请上传一份word或excel文档</p>
+	</div>
+	<div class="uploadfile_rander ml25">
+		<img src=""  />
+		<p class='uploadfile_delete'>删除</p>
+		<p class='uploadfile_name'></p>
+	</div>
+	<div  class="delete_btn"  data-id="textComponent_{{:textInputNum}}" data-toggle="tooltip" data-placement="bottom" title="删除"><i class="fa fa-trash"></i></div>
+</div>

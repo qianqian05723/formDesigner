@@ -1,0 +1,504 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>政务表单简易填报系统</title>
+		<meta charset="UTF-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<link href="../static/Public/externals/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../static/Public/externals/font-awesome-4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../static/Public/css/formbuild.css" />
+		<link rel="stylesheet" type="text/css" href="../static/Public/css/edit.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/Public/css/text.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/Public/css/text_edit.css"/>
+		<link rel="stylesheet" href="../static/Public/externals/jquery-datepicker/css/jquery-ui.css" />
+		<link rel="stylesheet" href="../static/Public/externals/jquery-datepicker/css/jquery-ui.theme.css" />
+		<link rel="stylesheet" href="../static/Public/externals/jquery-colorpicker/css/colpick.css" />
+		<link rel="stylesheet" href="../static/Public/externals/jquery-sortable/css/Sortable.css" />
+	</head>
+
+	<body>
+		<!--title-->
+		<div class="title">
+			<p class='title_name'>政务表单简易填报系统</p>
+			<i class="fa fa-mail-reply back_btn"></i>
+		</div>
+		<!--<p >创建表单</p>-->
+		<div class='creat_formtitle'>
+			<div class="publish-form" id="publishForm"><i id="icon-publish-form" class="fa fa-paper-plane"></i><div class="publish-tag"><em></em>发布表单</div></div>
+		</div>
+		<div class='main'>
+			<div class='form_design'>
+				<!-- container -->
+				<div class="container">
+					<div class="form_build">
+						<div class="title"></div>
+						<div class="form-title" id="formTitleDisplay"></div>
+						<div class="form-describe" id="formDescribeDisplay"></div>
+						<div class="clearfix">
+							<div id="build">
+								<form id="target" enctype="multipart/form-data" class="form-inline">
+								</form>
+							</div>
+						</div>
+						<div class="button-group">
+							<div class="button_component" data-type="btnSubmit" data-backgroundColor="" data-padding="" data-shadow="false" data-fontFamily="" data-fontSize="" data-fontWeight="" data-fontColor="" data-borderColor="" data-borderWidth="" data-layout="">
+								<input type="button" class="form_submit_btn" id="input_btn_submit" value="提交"/>
+							</div>
+							<div class="temporary_component" data-type="btnTemporary" data-backgroundColor="" data-padding="" data-shadow="false" data-fontFamily="" data-fontSize="" data-fontWeight="" data-fontColor="" data-borderColor="" data-borderWidth="">
+								<input type="button" class="form_temporary_btn" id="input_btn_temporary" value="暂存"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /container -->
+				<div class="pre-view" id="preView"><i id="icon-pre-view" class="fa fa-eye"></i><div class="tag"><em></em>预览表单</div></div>
+
+				<!--右边部分-->
+				<div class="right_panel">
+				  <div class="tabbable">
+					<ul class="nav nav-tabs" id="navtab">
+					  <li class="active" id="formAttribute"><a href="#0" data-toggle="tab">表单属性</a></li>
+					  <li id="listControls"><a href="#1" data-toggle="tab">添加字段</a></li>
+					  <li id="editControls"><a href="#2" data-toggle="tab">编辑字段</a></li>
+					</ul>
+					<form  id="components">
+					  <fieldset>
+						<div class="tab-content">
+						<!--控件-->
+							<div class="tab-pane active" id="0">
+								<div class="form-group" id="div_fromName">
+									<label>表单名称:</label>
+									<input type="text" id="form_name" placeholder="请输入表单名称" value="" />
+									<div class="error_tip" id="errorTip_FormName">请务必填写表单名称</div>
+								</div>
+								<div class="form-group" id="div_fromDescribe">
+									<label>表单描述:</label>
+									<textarea  rows="5" cols="10" id="form_describe" placeholder="请输入表单描述" value="" style="resize: none"></textarea>
+								</div>
+							</div>
+							<div class="tab-pane" id="1">
+								<label class="field_session">通用字段</label>
+								<div id="commonComponentSelect">
+									<div class="component item mt10"  data-type="text" data-content=''>单行文本框</div>
+									<div class="component item mt10"  data-type="textarea" data-content=''>多行文本框</div>
+									<div class="component item mt10" data-type="radio" data-content=''>单项选择</div>
+									<div class="component item mt10" data-type="checkbox" data-content=''>多项选择</div>
+									<div class="component item mt10" data-type="dropdown" data-content=''>下拉框</div>
+									<div class="component item mt10" data-type="number" data-content=''>数字</div>
+									<div class="component item mt10" data-type="time" data-content=''>时间</div>
+									<div class="component item mt10" data-type="date" data-content=''>日期</div>
+									<div class="component item mt10" data-type="email" data-content=''>邮箱</div>
+									<div class="component item mt10" data-type="mobilePhone" data-content=''>手机</div>
+									<div class="component item mt10" data-type="telephone" data-content=''>电话</div>
+									<div class="component item mt10" data-type="address" data-content=''>地址</div>
+									<div class="component item mt10" data-type="uploadimg" data-content=''>上传图片</div>
+									<div class="component item mt10" data-type="uploadfile" data-content=''>附件上传</div>
+									<div class="component item mt10" data-type="cascadedropdown" data-content=''>两级下拉框</div>
+									<div class="component item mt10" data-type="table" data-content=''>子表单</div>
+									<div class="component item mt10" data-type="groupTitle" data-content=''>分类标题</div>
+								</div>
+								<div class='division_panel'></div>
+								<div>
+									<label class="field_session mt10 filed_content">加强字段</label>
+									<a class='btn add_filed'><img class="icon_plus" src="../static/Public/images/icon_plus.png" />加强字段</a>
+								</div>
+								<div class='field_content' id='fieldComponentSelect'>
+									<!--<div class="component item mt10" id="fieldtext1" data-type="fieldtext" data-content='' data-url="123"  data-name="phone">企业名称</div>-->
+								</div>
+							</div>  <!--字段结束-->
+							<div class="tab-pane" id="2"></div>
+							<!--保存表单按钮-->
+							<div class="save_form_box">
+								<a class="btn btn-save">保存表单</a>
+							</div>
+						</div><!--tab-content-->
+						</fieldset>
+					  </form>
+					</div><!---tabbable-->
+				</div> <!-- right_panel -->
+		   </div> <!--form_design-->
+		</div><!-- main-->
+		
+		<!--modal-->
+		<!--加强字段-->
+		<div class="modal fade" id="fildemodel" role="dialog">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><img src="../static/Public/images/close.png" /></button>
+		                <h5 class="modal-title">选择需要的加强字段</h5>
+		            </div>
+		            <div class="modal-body">
+						<div class="">
+							 <div class="input-group">
+							  <input type="text" class="form-control search_field_input" placeholder="请输入加强字段名称">
+							  <span class="input-group-btn">
+								<button class="btn btn-default search_field_btn" type="button">查询</button>
+							  </span>
+							</div>
+						</div>
+		                 <div class='field_selectlist'>
+		                 	<div class="list_header_box">
+		                 		<div class='list_header width25'>导入</div>
+                    			<div class='list_header width75'>字段名称</div>
+		                 	</div>
+		                 	<div class='list_content'>
+		                 		<!--<div class='item_box'>
+		                 			<div class='width25'><input type="checkbox" class='field_select_check' data-id="1" /></div>
+                    				<div class='field_name width75'>所属平台</div>
+		                 		</div>-->
+		                 	</div>
+		                 	<!--没有相关数据 -->
+			                <div class="nodata">
+			                    <img class="icon_info" src="../static/Public/images/icon_info.png" />没有相关数据
+			                </div>
+		                </div>
+		               	 <nav class="page_num">
+							<span class="count"> 共有<span class='allcount'></span>条，每页显示：5条</span>
+							<div class="sofupage">
+				                <!--<a class="first disable" href="javascript:void(0)">首页</a>
+				                <a href="javascript:void(0)" class="cur">1</a>
+				                <a href="javascript:void(0)">2</a>
+				                <a href="javascript:void(0)">3</a>
+				                <a class="last" href="javascript:void(0)">末页</a>-->
+				            </div>
+				        </nav>
+		            </div>
+		            <div class="modal-footer">
+		                <input type="submit" class="btn btn-primary" data-dismiss="modal" value="确定" />
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<!--操作成功失败-->
+		<div class="result_tip" id="op_tip">
+			<div class="inner_content">
+				<!-- <p class="success_tip"><i class="icon_success"></i>操作成功</p> -->
+				<p class="fail_tip"><i class="icon_fail"></i>操作失败</p>
+			</div>
+		</div>
+		<!-- 加载 -->
+		<div class='mask'><div class='loadbox'><span class='loadtxt'><i class='fa fa-spinner fa-pulse'></i>数据加载中，请稍等……</span></div></div> 
+		<script src="../static/Public/externals/jquery-3.2.1.min.js"></script>
+		<script src="../static/Public/externals/bootstrap/js/bootstrap.min.js"></script>
+		<script src="../static/Public/externals/jsrender.js"></script>
+		<script src="../static/Public/externals/jquery-sortable/js/Sortable.js"></script>
+		<script src="../static/Public/js/formbuild-core.js"></script>
+		<script src="../static/Public/js/formbuild-plugins-1.js"></script>
+		<script src="../static/Public/js/formbuild-plugins-2.js"></script>
+		<script src="../static/Public/externals/jquery-datepicker/js/jquery-ui.min.js"></script>
+		<script src="../static/Public/externals/jquery-datepicker/locales/dateinput-ch-ZN.js"></script>
+		<script src="../static/Public/externals/jquery-distpicker/js/distpicker.data.js"></script>
+		<script src="../static/Public/externals/jquery-distpicker/js/distpicker.js"></script>
+		<script src="../static/Public/externals/jquery-colorpicker/js/colpick.js"></script>
+		<script src="../static/Public/js/formbuild.js"></script>
+		<script src="../static/Public/externals/jquery-sofupage.js"></script>
+		<script src="../static/Public/js/savemodel.js"></script>
+	</body>
+	<script type="text/javascript">
+		var  FORMID='';//表单id.保存表单以后，会得到表单id
+		
+		$(function(){
+            //初始化拖拽控件
+            initSortable();
+            initClickAreaEvent();
+
+            var currentOption = sessionStorage.getItem("currentOption");
+            if(currentOption == "backEdit"){//从预览返回编辑
+                var oldPage = sessionStorage.getItem("oldEditHtml");
+                $(".container").find(".form_build").remove();
+                $(".container").append(oldPage);
+                $("#form_name").val( sessionStorage.getItem("formName"));
+                $("#form_describe").val( sessionStorage.getItem("formDescribe"));
+                Sortable.create($("#target")[0], {
+                    group: {
+                        name: 'target',
+                        pull: false,
+                        put: true
+                    },
+                    animation: 150
+                });
+                initClickAreaEvent();
+                sessionStorage.setItem("currentOption","");
+                sessionStorage.setItem("oldEditHtml","");
+                sessionStorage.setItem("newEditHtml","");
+                var field = sessionStorage.getItem("fieldHtml");
+                $(".field_content").html(field);
+			}else if(currentOption == "edit"){//编辑操作
+                var editFormName = sessionStorage.getItem("edit_formName");
+                var editFormDescribe = sessionStorage.getItem("edit_formDescribe");
+                var editFormContent = sessionStorage.getItem("edit_formContent");
+                $(".container").find(".form_build").remove();
+                $(".container").append(editFormContent);
+                $("#form_name").val(editFormName);
+                $("#form_describe").val(editFormDescribe);
+                initSortable();
+                initClickAreaEvent();
+                sessionStorage.setItem("currentOption","");
+                sessionStorage.setItem("edit_formName","");
+                sessionStorage.setItem("edit_formDescribe","");
+                sessionStorage.setItem("edit_formContent","");
+			}
+
+			function initClickAreaEvent() {
+                $(".container").find(".form_build").on("click",function (e) {
+                    var target = e.target;
+                    if(target.id == "target"){
+                        //tab标签变换
+                        $("#formAttribute").removeClass("active");
+                        $("#listControls").addClass("active");
+                        $("#editControls").removeClass("active");
+                        //tab页内容变换
+                        $("#0").removeClass("active");
+                        $("#1").addClass("active");
+                        $("#2").removeClass("active");
+                    }else{
+                        //tab标签变换
+                        $("#formAttribute").addClass("active");
+                        $("#listControls").removeClass("active");
+                        $("#editControls").removeClass("active");
+                        //tab页内容变换
+                        $("#0").addClass("active");
+                        $("#1").removeClass("active");
+                        $("#2").removeClass("active");
+                    }
+                });
+            }
+
+            function initSortable() {
+                var target = $("#target");
+                //时间戳
+                var textInputNum = 0;
+                //通用拖拽控件初始化
+                Sortable.create($("#commonComponentSelect")[0], {
+                    group: {
+                        name: 'target',
+                        pull: 'clone',
+                        put: false
+                    },
+                    sort: false,
+                    animation: 150,
+                    onEnd: function (evt) {
+                        //删除目标区域控件的部分属性
+                        var componentItem = $("#componentItem_"+textInputNum);
+						/* componentItem.removeAttr("data-type");*/
+                        componentItem.removeAttr("data-content");
+                        componentItem.removeAttr("style");
+                        componentItem.removeAttr("class","");
+                        //恢复选择区域控件的原始属性
+                        var originItem = $("#commonComponentSelect").find("#componentItem_" + textInputNum);
+                        recoveryOriginItem(originItem);
+                        //初始化地址控件
+                        var component_id = "component_" + textInputNum;
+                        if($("#"+component_id).attr("data-type") == "address"){
+                            var idValue = textInputNum;
+                            $("#distpicker_"+idValue).distpicker({
+                                province: '江苏省',
+                                city: '苏州市',
+                                autoSelect: false
+                            });
+                        }
+                        textInputNum = "";
+                    },
+                    onClone: function (evt) {
+                        var component = evt.item;
+                        textInputNum = Date.parse(new Date());
+                        //给组件ID
+                        var componenturl="../static/component/"+component.getAttribute("data-type")+".html";
+                        //加载组件模板
+                        $.ajax({
+                            url: componenturl,
+                            type: "GET",
+                            async: false,
+                            success: function(data){
+                                var tmplate = $.templates(data);
+                                var index = {textInputNum:textInputNum};
+                                component.innerHTML = tmplate.render(index);
+                                component.setAttribute("id","componentItem_"+textInputNum);
+                            }
+                        });
+                    }
+                });
+                //加强字段拖拽控件初始化
+                Sortable.create($("#fieldComponentSelect")[0], {
+                    group: {
+                        name: 'target',
+                        pull: 'clone',
+                        put: false
+                    },
+                    sort: false,
+                    animation: 150,
+                    onEnd: function (evt) {
+                        //删除目标区域控件的部分属性
+                        var componentItem = $("#component_"+textInputNum).parent();
+                        var itemId = componentItem.attr("id");
+						/* componentItem.removeAttr("data-type");*/
+                        componentItem.removeAttr("class","");
+                        componentItem.removeAttr("style");
+						/*componentItem.removeAttr("id");*/
+
+                        //恢复选择区域控件的原始属性
+                        var originItem = $("#fieldComponentSelect").find("#" + itemId);
+                        recoveryOriginItem(originItem);
+                        if($("#target").find("#"+itemId).length == 1){
+                            originItem.hide();
+                        }
+                        textInputNum = "";
+                    },
+                    onClone: function (evt) {
+                        var component = evt.item;
+                        textInputNum = Date.parse(new Date());
+                        //给组件ID
+                        var componenturl="../static/component/"+component.getAttribute("data-type")+".html";
+                        //加载组件模板
+                        $.ajax({
+                            url: componenturl,
+                            type: "GET",
+                            async: false,
+                            success: function(data){
+                                var tmplate = $.templates(data);
+                                var fielddataid=component.getAttribute("data-id");
+                                
+                                var index = {textInputNum:textInputNum,id:component.getAttribute("id"),title:component.innerHTML,fielddataid:fielddataid};
+                                component.innerHTML = tmplate.render(index);
+                            }
+                        });
+                    }
+                });
+                //目标区域
+                Sortable.create(target[0], {
+                    group: {
+                        name: 'target',
+                        pull: false,
+                        put: true
+                    },
+                    animation: 150
+                });
+            }
+
+            //恢复选择区域控件的原始属性
+            function recoveryOriginItem(originItem) {
+                var dataType = originItem.attr("data-type");
+                if(dataType == "text"){
+                    originItem.html("单行文本框") ;
+                }else if(dataType == "textarea"){
+                    originItem.html("多行文本框") ;
+                }else if(dataType == "radio"){
+                    originItem.html("单项选择") ;
+                }else if(dataType == "checkbox"){
+                    originItem.html("多项选择") ;
+                }else if(dataType == "dropdown"){
+                    originItem.html("下拉框") ;
+                }else if(dataType == "number"){
+                    originItem.html("数字") ;
+                }else if(dataType == "time"){
+                    originItem.html("时间") ;
+                }else if(dataType == "date"){
+                    originItem.html("日期") ;
+                }else if(dataType == "email"){
+                    originItem.html("邮箱") ;
+                }else if(dataType == "mobilePhone"){
+                    originItem.html("手机") ;
+                }else if(dataType == "telephone"){
+                    originItem.html("电话") ;
+                }else if(dataType == "address"){
+                    originItem.html("地址") ;
+                }else if(dataType == "uploadimg"){
+                    originItem.html("上传图片") ;
+                }else if(dataType == "uploadfile"){
+                    originItem.html("附件上传") ;
+                }else if(dataType == "cascadedropdown"){
+                    originItem.html("两级下拉框") ;
+                }else if(dataType == "table"){
+                    originItem.html("子表单") ;
+                }else if(dataType == "fieldtext"){
+                    //originItem.html(JSON.parse(originItem.attr("data-fieldcontent")).fixationFieldName);
+                    originItem.html(originItem.text());
+                }
+                if(dataType != "fieldtext"){
+                    originItem.removeAttr("id");
+                }
+                originItem.addClass("component item mt10");
+                originItem.css("width","137px");
+            }
+
+			//发布
+			$("#publishForm").on("mouseenter",function(){
+				$(".publish-tag").css("display","block");
+			});
+			$("#publishForm").on("mouseleave",function(){
+				$(".publish-tag").css("display","none");
+			});
+			
+            $("#preView").on("mouseenter",function(){
+				$(".tag").css("display","block");
+			});
+            $("#preView").on("mouseleave",function(){
+				$(".tag").css("display","none");
+			});
+             $("#preView").on("mousedown",function(){
+				 $(".pre-view").css("background","#009aff");
+				 $(".pre-view").css("color","#fff");
+             });
+             $("#preView").on("mouseup",function(){
+				 $(".pre-view").css("background","#fff");
+				 $(".pre-view").css("color","#222");
+                 var formName = $("#form_name").val();
+                 if(formName != null && formName != ""){
+                     savestate();
+                     $("#errorTip_FormName").css("display","none");
+                     window.location.href = "preview.html";
+				 }else{
+                     //tab标签变换
+                     $("#formAttribute").addClass("active");
+                     $("#listControls").removeClass("active");
+                     $("#editControls").removeClass("active");
+                     //tab页内容变换
+                     $("#0").addClass("active");
+                     $("#1").removeClass("active");
+                     $("#2").removeClass("active");
+                     $("#errorTip_FormName").css("display","inline-block");
+                     $("#form_name").focus();
+				 }
+			 });
+		});
+		//保存，提交，预览时进行的过滤操作	
+		function savestate(){
+			 var container = $(".container");
+			 //保存原始的编辑页面
+             sessionStorage.setItem("oldEditHtml",container.html());
+			 //表单标题和描述调整
+			 var formName = $("#form_name").val();
+			 var formDescribe = $("#form_describe").val();
+             //单独保存表单名称和表单描述
+             sessionStorage.setItem("formName",formName);
+             sessionStorage.setItem("formDescribe",formDescribe);
+			/* var titleStr = '<div class="form-title">'+formName+'</div><div class="form-describe">'+formDescribe+'</div>';
+			 container.find(".title").after(titleStr);*/
+			 //清除容器内的删除按钮
+			 container.find(".delete_btn").remove();
+			 //清除target边框线
+			 container.find("#target").removeClass("form-inline");
+			 container.find(".clearfix").addClass("build-line");
+			 //清除容器内component部分样式
+			 container.find(".remove-disabled").removeAttr("disabled");
+			 container.find(".component").removeClass("component_select");
+			 container.find(".component").removeAttr("style");
+			 container.find(".icons").remove();
+             container.find(".control-label").removeClass("margin-left");
+             container.find(".componentControl").removeClass("margin-left");
+              //清除按钮部分样式
+             container.find(".button_component").css("border","none");
+             container.find(".button_component").css("background","none");
+             container.find(".temporary_component").css("border","none");
+             container.find(".temporary_component").css("background","none");
+            /* container.find(".temporary_component").removeAttr("style");*/
+             //保存加强字段
+             sessionStorage.setItem("fieldHtml",$(".field_content").html());
+			 //页面跳转
+			 sessionStorage.setItem("newEditHtml",container.html());
+		}
+	</script>
+</html>

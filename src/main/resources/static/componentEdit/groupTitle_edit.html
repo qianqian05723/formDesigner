@@ -1,0 +1,78 @@
+<div class="controls">
+    <div class="component-heading">分类标题</div>
+    <div class="component-content">
+        <div class="component-field">
+            <label class="component-label">标题</label>
+            <div class="component-value">
+                <input type="text" id="componentName_{{:componentID}}" placeholder="" value="">
+            </div>
+        </div>
+    </div>
+    <div class="component-content">
+        <div>
+            <label class="component-label">背景</label>
+            <div class="groupTitle-color-box" id="backgroundColorValue_{{:componentID}}"></div>
+            <select class="style-width" id="opacity_{{:componentID}}">
+                <option value="0">无</option>
+                <option value="0.1">0.1</option>
+                <option value="0.2">0.2</option>
+                <option value="0.3">0.3</option>
+                <option value="0.4">0.4</option>
+                <option value="0.5">0.5</option>
+                <option value="0.6">0.6</option>
+                <option value="0.7">0.7</option>
+                <option value="0.8">0.8</option>
+                <option value="0.9">0.9</option>
+                <option value="1">1</option>
+            </select>
+        </div>
+        <div class="colorValueDisplay" id="backgroundColorValueDisplay_{{:componentID}}"></div>
+    </div>
+    <div class="component-content">
+        <div>
+            <label class="component-label">边框</label>
+            <div class="groupTitle-color-box" id="borderTopColorValue_{{:componentID}}"></div>
+            <select class="style-width" id="borderTopWidthValue_{{:componentID}}">
+                <option value="0">无</option>
+                <option value="1px">1</option>
+                <option value="2px">2</option>
+                <option value="3px">3</option>
+                <option value="4px">4</option>
+                <option value="5px">5</option>
+                <option value="6px">6</option>
+                <option value="7px">7</option>
+                <option value="8px">8</option>
+            </select>
+        </div>
+        <div class="colorValueDisplay" id="borderTopColorValueDisplay_{{:componentID}}"></div>
+    </div>
+    <div class="component-content">
+        <div>
+            <label class="component-label">字体</label>
+            <select class="fontFamily" id="fontFamilyValue_{{:componentID}}">
+                <option value="inherit">默认</option>
+                <option value="tahoma">Tahoma</option>
+                <option value="helvetica">Helvetica</option>
+                <option value="verdana">Verdana</option>
+                <option value="georgia">Georgia</option>
+                <option value="heiti">黑体</option>
+                <option value="kaiti">楷体</option>
+                <option value="songti">宋体</option>
+            </select>
+            <select class="fontSize" id="fontSizeValue_{{:componentID}}">
+                <option value="16px">12</option>
+                <option value="18px">14</option>
+                <option value="21px">16</option>
+                <option value="24px">18</option>
+                <option value="26px">20</option>
+                <option value="29px">22</option>
+            </select>
+            <select class="fontWeight" id="fontWeightValue_{{:componentID}}">
+                <option value="normal">不加粗</option>
+                <option value="bold">加粗</option>
+            </select>
+            <div class="fontColor-box" id="fontColorValue_{{:componentID}}"></div>
+        </div>
+        <div class="fontColorValueDisplay" id="fontColorValueValueDisplay_{{:componentID}}"></div>
+    </div>
+</div>

@@ -1,0 +1,185 @@
+/*单行文本样式*/
+.component-heading{
+    width: 305px;
+    background-color: #FFF;
+    display: block;
+    padding: 2px 10px;
+    margin: 0 -10px;
+    color: #222222;
+    text-decoration: none;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+.component-content{
+    margin-top: 10px;
+}
+.component-field{
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+.component-label{
+    display: inline-block;
+    margin-bottom: 2px;
+}
+.component-value > input[type=text]{
+    width: 92%;
+    height: 24px;
+    line-height: 24px;
+    vertical-align: middle;
+}
+.component-value > input[type=checkbox]{
+    margin-top: 0;
+}
+.component-value > select{
+    width: 85px;
+}
+.component-newRow{
+    display: none;
+}
+.component-validate{
+    margin-left: 2px;
+}
+.component-validate > input[type=text]{
+    width: 59px;
+    margin-bottom: 0;
+}
+.component-validate > input[type=number]{
+    width: 59px;
+    margin-bottom: 0;
+}
+.component-layout > select{
+    width: 59px;
+}
+.component-other{
+    margin-left: 2px;
+}
+/**********************************************/
+/*时间*/
+.hideSecondSelect{
+    display: none;
+}
+/**********************************************/
+/*日期*/
+.component-date{
+    position: relative;
+}
+.component-date > select{
+    width: 90px;
+}
+#icon-editDate{
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    font-size: 14px;
+}
+.date-picker{
+    width: 145px;
+}
+.component-validateDate{
+    position: relative;
+}
+#icon-startDate{
+    position: absolute;
+    top: -4px;
+    left: 58px;
+    font-size: 14px;
+}
+#icon-endDate{
+    position: absolute;
+    top: -4px;
+    left: 58px;
+    font-size: 14px;
+}
+/**********************************************/
+/*地址*/
+.ml15{
+    margin-left: 15px;
+}
+/**********************************************/
+/*分类标题*/
+.groupTitle-color-box{
+    display: inline-block;
+    position: absolute;
+    width: 48px;
+    height: 22px;
+    padding: 2px;
+    /* margin-top: -3px;
+     margin-left: 5px;*/
+    border-radius: 2px;
+    border: 1px solid #C3C9D0;
+    background: white;
+}
+.colorValueDisplay{
+    margin-left: 35px;
+}
+.fontColorValueDisplay{
+    margin-top: 35px;
+    margin-left: 35px;
+}
+/**********************************************/
+/*颜色选择器*/
+.color-box{
+    display: inline-block;
+    position: absolute;
+    width: 48px;
+    height: 22px;
+    padding: 2px;
+    margin-top: 2px;
+    border-radius: 2px;
+    border: 1px solid #C3C9D0;
+    background: white;
+}
+.style-width{
+    width: 70px;
+    margin-left: 60px;
+}
+.style-shadow{
+    width: 70px;
+}
+.fontFamily{
+    width: 70px;
+}
+.fontSize{
+    width: 70px;
+}
+.fontWeight{
+    width: 80px;
+}
+.fontColor-box{
+    position: absolute;
+    width: 48px;
+    height: 22px;
+    padding: 2px;
+    margin-left: 32px;
+    margin-top: 2px;
+    border-radius: 2px;
+    border: 1px solid #C3C9D0;
+    background: white;
+}
+.borderSetting{
+    position: absolute;
+    margin-top: 30px;
+}
+.layoutSetting{
+    position: absolute;
+    margin-top: 80px;
+}
+.gd-btn{
+    display: inline-block;
+    width: 60px;
+    height: 22px;
+    background-color: white;
+}
+.gd-btn > input[type=radio]{
+    visibility:hidden;
+}
+.radio-selected{
+    background: #009AFF;
+    border: 1px solid #009AFF;
+    color: #fff;
+}
+.radio-unselected{
+    background: #fff;
+    border: 1px solid #AAB2BD;
+    color: #222;
+}

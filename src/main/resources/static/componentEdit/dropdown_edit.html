@@ -1,0 +1,51 @@
+<div class="controls dropdown_component_edit">
+	<div class="component-heading mb10">下拉框</div>
+	<div class="form-group">
+	  	<label>标题</label>
+	  	<div>
+	    	<input  type="text" class="mb0 form-control component_title"  placeholder="未命名" >
+	    	<p class="error_tip mg0">标题不能为空</p>
+    	</div>
+    	<label class='mt10'>选项</label>
+    		<ul class="optionlist mg0">
+    			<!--<li class="mt10">
+    				<input type="radio" class="radio_edit" name="radio_edit" data-toggle="tooltip" data-placement="bottom" title="设为默认"/>
+    				<input type="text" class="option_value" placeholder="选项" value=""/>
+    				<i class="fa fa-plus-circle radio_add_option"></i>
+    				<i class="fa fa-minus-circle radio_minus_option"></i>
+    				<p class="error_tip">选项不能为空</p>
+    			</li>-->
+    		</ul>
+    	<label class='mt10'>自定义选择默认文案</label>
+    	<div>
+    		<input  type="text" class="mb0 form-control component_dropdown_prompt"  placeholder="请选择" value="请选择">	
+    	</div>
+    	<div class="component-heading mt10 mb10">校验</div>
+    	<div class='check_box'>
+    		<div class="component-field">
+	            <div class="component-value">
+	            	 <input type="checkbox" class="require_check"><span class="component-validate">必须填</span>
+	            </div>
+            </div>	
+    	</div>
+    	<div class="component-heading mt10 mb10">布局设置</div>
+    	<div class="component-content">
+	        <div class="component-field">
+	            <div class="component-value">
+	                <input type="checkbox"   class="layout_checkbox" value="" />
+	                <span class="component-layout">宽度占用整行的：<select class='select_layout_btn'>
+	                    <option value=""></option>
+	                    <option value="0.25">1/4</option>
+	                    <option value="0.5">1/2</option>
+	                    <option value="0.75">3/4</option>
+	                </select></span>
+	            </div>
+	        </div>
+	        <div class="component-field new_row_box" style="display: none;">
+	        	<div class="component-value">
+	        		<input type="checkbox" class="new_row_checkbox"><span class="component-validate">新起一行</span>
+	        	</div>	
+	        </div>	
+	    </div>
+	</div>	
+</div>	
